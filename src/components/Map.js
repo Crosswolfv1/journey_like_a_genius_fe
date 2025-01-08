@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const mapContainerStyle = {
@@ -7,33 +7,37 @@ const mapContainerStyle = {
 };
 
 const center = {
-  lat: 37.7749, // San Francisco latitude (initial value)
-  lng: -122.4194, // San Francisco longitude (initial value)
+  lat: 35.6762, // Tokyo latitude
+  lng: 139.6503, // Tokyo longitude
 };
 
 const Map = () => {
-  const inputRef = useRef(null);
-  const [selectedPlace, setSelectedPlace] = useState(null);
   const [mapCenter, setMapCenter] = useState(center);
-  const [placesData, setPlacesData] = useState([]); // State to store places data
-  const [loading, setLoading] = useState(true); // State to track loading status
+  const [placesData, setPlacesData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
+  // Define your test requests
+  const requests = {
+    request1: {
+      textQuery: "Ramen in Tokyo",
+      fields: ["accessibilityOptions", "adrFormatAddress", "allowsDogs", "isGoodForChildren"],
+      includedType: "restaurant",
+    },
+    request2: {
+      textQuery: "Cafes in Tokyo",
+      fields: ["accessibilityOptions", "adrFormatAddress", "allowsDogs", "isGoodForChildren"],
+      includedType: "culture",
+    },
+    request3: {
+      textQuery: "Burgers in Tokyo",
+      fields: ["accessibilityOptions", "adrFormatAddress", "allowsDogs", "isGoodForChildren"],
+      includedType: "restaurant",
+    },
+  };
   // Function to fetch data based on the request
-  const fetchPlacesData = async () => {
-    const request = {
-      textQuery: "Tacos in Mountain View",
-      fields: ["name", "geometry", "business_status"],
-      locationBias: { lat: 37.4161493, lng: -122.0812166 },
-      isOpenNow: true,
-      language: "en-US",
-      region: "us",
-      minRating: 3.2,
-      maxResultCount: 8,
-      useStrictTypeFiltering: false,
-    };
-  
+  const fetchPlacesData = async (request) => {
     try {
       setLoading(true);
       const response = await fetch(
@@ -44,55 +48,35 @@ const Map = () => {
       const data = await response.json();
       setPlacesData(data.results);
       setLoading(false);
+
+      // Update map center to the first result, if available
+      if (data.results.length > 0) {
+        const firstPlace = data.results[0];
+        if (firstPlace.geometry) {
+          setMapCenter({
+            lat: firstPlace.geometry.location.lat,
+            lng: firstPlace.geometry.location.lng,
+          });
+        }
+      }
     } catch (error) {
       console.error("Error fetching places data:", error);
       setLoading(false);
     }
   };
-  
-  useEffect(() => {
-    fetchPlacesData(); // Fetch places data when the component mounts
-  }, []);
-
-  useEffect(() => {
-    if (placesData.length > 0) {
-      // Set the center to the first place's location (or choose one as you prefer)
-      const firstPlace = placesData[0];
-      if (firstPlace.geometry) {
-        setMapCenter({
-          lat: firstPlace.geometry.location.lat,
-          lng: firstPlace.geometry.location.lng,
-        });
-      }
-    }
-  }, [placesData]);
 
   return (
     <LoadScript googleMapsApiKey={apiKey} libraries={["places"]}>
       <div style={{ marginBottom: "20px" }}>
-        <input
-          ref={inputRef}
-          type="text"
-          placeholder="Search for a place"
-          style={{
-            width: "100%",
-            padding: "10px",
-            fontSize: "16px",
-            boxSizing: "border-box",
-          }}
-        />
-        {selectedPlace && (
-          <div style={{ marginTop: "10px" }}>
-            <strong>Place Name:</strong> {selectedPlace.name || "N/A"}
-          </div>
-        )}
+        <button onClick={() => fetchPlacesData(requests.request1)}>Ramen in Tokyo</button>
+        <button onClick={() => fetchPlacesData(requests.request2)}>Cafes in Tokyo</button>
+        <button onClick={() => fetchPlacesData(requests.request3)}>Burgers in Tokyo</button>
       </div>
 
       {loading ? (
         <div>Loading places...</div>
       ) : (
         <GoogleMap mapContainerStyle={mapContainerStyle} center={mapCenter} zoom={12}>
-          {/* Add markers for each place */}
           {placesData.map((place, index) => (
             <Marker
               key={index}
