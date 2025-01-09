@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const mapContainerStyle = {
@@ -43,11 +43,16 @@ const Map = () => {
       const response = await fetch(
         `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(
           request.textQuery
+        )}&fields=${encodeURIComponent(request.fields.join(','))}&type=${encodeURIComponent(
+          request.includedType
         )}&key=${apiKey}`
       );
       const data = await response.json();
-      setPlacesData(data.results);
+      setPlacesData(data.results.slice(0, 10));
       setLoading(false);
+      console.log("all", data.results)
+      console.log("first", data.results[0])
+
 
       // Update map center to the first result, if available
       if (data.results.length > 0) {
