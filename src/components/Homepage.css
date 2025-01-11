@@ -1,0 +1,23 @@
+header {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: black;
+}
+
+button {
+  border-radius: 5px;
+  background-color: beige;
+  font-size: 15px;
+  cursor: pointer;
+}
