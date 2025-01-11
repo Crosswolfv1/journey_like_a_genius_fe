@@ -1,7 +1,16 @@
+body {
+  height: 100vh;
+  background-image: url('/public/world.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 header {
   text-align: center;
   font-family: Arial, sans-serif;
   padding: 20px;
+  color: beige;
 }
 
 h1 {
@@ -12,7 +21,7 @@ h1 {
 p {
   font-size: 14px;
   margin-bottom: 15px;
-  color: black;
+  color: beige;
 }
 
 button {
