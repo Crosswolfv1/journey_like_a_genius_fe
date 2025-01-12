@@ -8,6 +8,7 @@ const App = () => {
       {/* <h1>Google Maps with React</h1>
       <Map /> */}
       <Homepage />
+      <Preferences />
     </div>
   );
 };
