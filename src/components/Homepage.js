@@ -1,21 +1,21 @@
 import React from "react";
 import "./Homepage.css";
 
-const Homepage = () => {
+const Homepage = ({ setShowPreferences }) => {
   return (
-  <div>
+  <main>
     <header>  
       <h1> Journey Like a Genius </h1>
-      <p>
-        We're excited to get started on your personalized travel itinerary
-      </p>
+      <h2>
+        We're excited to get started on your personalized travel itinerary.
+      </h2>
       <p>
         We'll ask a series of questions to better understand you lifestyle,
-        preferences, and unique needs so we can generate a perfect travel day
+        preferences, and unique needs so we can generate a perfect travel day.
       </p>
-      <button> Let's get started </button>
+      <button onClick={() => setShowPreferences(true)}> Let's get started </button>
     </header>
-    </div>
+    </main>
   );
 };
 
