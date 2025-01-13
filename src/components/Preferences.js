@@ -6,6 +6,15 @@ const Preferences = () => {
     <main className="preferences-container">
       <h2> Please make your selections </h2>
       <form>
+        <section className="city-input">
+          <h3>What City Are You In?</h3>
+          <input
+          type="text"
+          id="city"
+          placeholder="Enter a city"
+          className="city-input"
+          />
+        </section>
         <section className="length-of-day">
           <h3> Would you prefer a half day or full day itinerary? </h3>
           <article>
