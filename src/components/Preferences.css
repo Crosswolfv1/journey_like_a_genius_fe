@@ -19,3 +19,17 @@
 .submit-button:hover {
   background-color: grey;
 }
+
+.city-input-section {
+  margin-bottom: 20px
+}
+
+.city-input {
+  width: 80%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 1rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
