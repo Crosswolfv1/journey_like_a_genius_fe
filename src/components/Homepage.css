@@ -1,27 +1,57 @@
 body {
-  height: 100vh;
-  background-image: url('/public/world.jpeg');
-  background-size: cover;
-  background-position: center;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-image: linear-gradient(to bottom, #fbf0da, #fcead0);
+  /* here is another option for background gradient:  */
+  /* background-image: linear-gradient(to bottom, #fbf0da, #4e302c); */
+
+}
+
+main {
+  width: 215%;
+  height: 96vh;
+  background-image: url('/public/travel.png');
+  background-size: contain;
+  background-position: right;
   background-repeat: no-repeat;
+  position: relative;
+  left: -55%;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 30%;
+  position: relative;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding-right: 60px;
 }
 
 header {
-  text-align: center;
+  text-align: left;
   font-family: Arial, sans-serif;
-  padding: 20px;
-  color: beige;
+  padding: 5px;
+  margin-left: 3%;
 }
 
 h1 {
   font-size: 24px;
   margin-bottom: 15px;
+  font-size: xx-large;
+  padding-bottom: 20px;
+}
+
+h2, p {
+  padding-left: 20px;
 }
 
 p {
   font-size: 14px;
   margin-bottom: 15px;
-  color: beige;
 }
 
 button {
@@ -29,4 +59,6 @@ button {
   background-color: beige;
   font-size: 15px;
   cursor: pointer;
+  float: left;
+  margin-left: 4%;
 }

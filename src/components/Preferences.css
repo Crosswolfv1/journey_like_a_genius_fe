@@ -1,8 +1,9 @@
 .preferences-container {
   padding: 20px;
-  text-align: center;
   font-family: Arial, sans-serif;
-  color: beige;
+  color: #4e302c;
+  background-color: #9ebaa7;
+  margin-top: -20px;
 }
 
 .submit-button {
