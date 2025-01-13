@@ -78,6 +78,9 @@ const Preferences = () => {
             <label for="bbq">Bbq</label>
           </article>
         </section>
+        <button type="submit" className="submit-button">
+        Submit Your Preferences
+      </button>
       </form>
     </main>
   );

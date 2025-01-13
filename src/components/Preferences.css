@@ -4,3 +4,17 @@
   font-family: Arial, sans-serif;
   color: beige;
 }
+
+.submit-button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: grey;
+}
