@@ -18,6 +18,9 @@ const GoogleMapsComponent = () => {
     const { places } = await Place.searchByText(request);
     setPlaces(places)
     console.log(places[0].Eg)
+    console.log(places[1].Eg)
+    console.log(places[2].Eg)
+    console.log(places[3].Eg)
   }  
 
   useEffect(() => {
