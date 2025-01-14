@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./Preferences.css";
+import useGoogleMaps from "../hooks/useGoogleMaps";
+
 
   const Preferences = () => {
     const [preferences, setPreferences] = useState({})
@@ -10,6 +12,25 @@ import "./Preferences.css";
     const [accessibility, setAccessibility] = useState('')
     const [groupSize, setGroupSize] = useState('')
     const [foodType, setFoodType] = useState('')
+    const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+    const { isLoaded, error } = useGoogleMaps(apiKey); 
+    const mapRef = useRef(null);
+    const [places, setPlaces] = useState([]);  
+
+
+    async function findPlaces() {
+      const { Place } = await window.google.maps.importLibrary("places");
+      const request = {
+        textQuery: `${preferences.activityType} in ${preferences.searchTerm}`,
+        fields: ["displayName", "id", "accessibilityOptions", "allowsDogs", "formattedAddress", "isGoodForChildren", "isGoodForGroups", "priceLevel", "types"],
+      };
+      const { places } = await Place.searchByText(request);
+      setPlaces(places)
+      places.forEach(element => {
+        console.log(element.Eg)
+      });
+    }  
+  
 
     useEffect(() => {
       setPreferences({
@@ -25,6 +46,7 @@ import "./Preferences.css";
   
     const handleSubmit = (event) => {
       event.preventDefault()
+      findPlaces(preferences)
       console.log('Preferences to pass to API:', preferences)
     }
 
