@@ -15,22 +15,26 @@ import useGoogleMaps from "../hooks/useGoogleMaps";
     const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
     const { isLoaded, error } = useGoogleMaps(apiKey); 
     const mapRef = useRef(null);
-    const [places, setPlaces] = useState([]);  
+    const [activityPlaces, setActivityPlaces] = useState([]);  
+    const [foodPlaces, setFoodPlaces] = useState([]);  
 
 
     async function findPlaces() {
       const { Place } = await window.google.maps.importLibrary("places");
-      const request = {
+      const activityRequest = {
         textQuery: `${preferences.activityType} in ${preferences.searchTerm}`,
         fields: ["displayName", "id", "accessibilityOptions", "allowsDogs", "formattedAddress", "isGoodForChildren", "isGoodForGroups", "priceLevel", "types"],
       };
-      const { places } = await Place.searchByText(request);
-      setPlaces(places)
-      places.forEach(element => {
-        console.log(element.Eg)
-      });
+      const { places } = await Place.searchByText(activityRequest);
+      setActivityPlaces(places)
+
     }  
   
+    useEffect(() => {
+      activityPlaces.forEach(element => {
+        console.log("Updated activityPlaces:", element.Eg);
+      })
+    }, [activityPlaces]);
 
     useEffect(() => {
       setPreferences({
