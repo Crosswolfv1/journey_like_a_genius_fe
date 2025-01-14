@@ -28,7 +28,7 @@ const Preferences = () => {
           <h3> What type of activity are you looking to do? </h3>
           <article>
             <input type="radio" id="nature" name="activity-type" value="nature" />
-            <label for="nature">Naturey</label>
+            <label for="nature">Nature</label>
             <input type="radio" id="culture" name="activity-type" value="culture" />
             <label for="culture">Culture</label>
             <input type="radio" id="shoping" name="activity-type" value="shopping" />
