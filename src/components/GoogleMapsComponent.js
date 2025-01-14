@@ -12,7 +12,7 @@ const GoogleMapsComponent = () => {
     const { AdvancedMarkerElement } = await window.google.maps.importLibrary("marker");
     const request = {
       textQuery: query,
-      fields: ["displayName", "id", "accessibilityOptions", "allowsDogs", "formattedAddress", "isGoodForChildren", "isGoodForGroups"],
+      fields: ["displayName", "id", "accessibilityOptions", "allowsDogs", "formattedAddress", "isGoodForChildren", "isGoodForGroups", "priceLevel", "types"],
     };
     const { places } = await Place.searchByText(request);
     setPlaces(places)
@@ -57,10 +57,24 @@ return (
                   <p><strong>{place.displayName}</strong></p>
                   <p>{place.adrFormatAddress}</p>
                   <p>Accessibility: </p>
-                  {console.log(place.accessibilityOptions)}
-                  {place.accessibilityOptions.map(element => {
-                    console.log(element)
-                  })}
+                  <ul>
+                    <li>
+                      Wheelchair Accessible Entrance:{" "}
+                      {place.accessibilityOptions?.hasWheelchairAccessibleEntrance ? "Yes" : "No"}
+                    </li>
+                    <li>
+                      Wheelchair Accessible Parking:{" "}
+                      {place.accessibilityOptions?.hasWheelchairAccessibleParking ? "Yes" : "No"}
+                    </li>
+                    <li>
+                      Wheelchair Accessible Restrooms:{" "}
+                      {place.accessibilityOptions?.hasWheelchairAccessibleRestroom ? "Yes" : "No"}
+                    </li>
+                    <li>
+                      Wheelchair Accessible Seating:{" "}
+                      {place.accessibilityOptions?.hasWheelchairAccessibleSeating ? "Yes" : "No"}
+                    </li>
+                  </ul>
                   <p>Allows Dogs: {place.allowsDogs ? "Yes" : "No"}</p>
                   <p>Good for Children: {place.isGoodForChildren ? "Yes" : "No"}</p>
                 </li>
