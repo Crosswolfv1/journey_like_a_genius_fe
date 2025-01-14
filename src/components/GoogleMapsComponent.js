@@ -15,7 +15,8 @@ const GoogleMapsComponent = () => {
       fields: ["displayName", "id", "accessibilityOptions", "allowsDogs", "formattedAddress", "isGoodForChildren", "isGoodForGroups"],
     };
     const { places } = await Place.searchByText(request);
-    console.log(places)
+    setPlaces(places)
+    console.log(places[0].Eg)
   }  
 
   useEffect(() => {
@@ -53,9 +54,13 @@ return (
             <ul>
               {places.map((place, index) => (
                 <li key={index}>
-                  <p><strong>{place.name}</strong></p>
+                  <p><strong>{place.displayName}</strong></p>
                   <p>{place.adrFormatAddress}</p>
-                  <p>Accessibility: {place.accessibilityOptions ? place.accessibilityOptions.join(", ") : "Not specified"}</p>
+                  <p>Accessibility: </p>
+                  {console.log(place.accessibilityOptions)}
+                  {place.accessibilityOptions.map(element => {
+                    console.log(element)
+                  })}
                   <p>Allows Dogs: {place.allowsDogs ? "Yes" : "No"}</p>
                   <p>Good for Children: {place.isGoodForChildren ? "Yes" : "No"}</p>
                 </li>
