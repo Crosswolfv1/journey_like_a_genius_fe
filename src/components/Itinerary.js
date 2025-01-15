@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import "./Itinerary.css";
+import useGoogleMaps from "../hooks/useGoogleMaps";
+
 
 const Itinerary = () => {
   const [activityPlaces, setActivityPlaces] = useState([]);  
   const [foodPlaces, setFoodPlaces] = useState([]);  
+  const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+  const { isLoaded, error } = useGoogleMaps(apiKey); 
+
 
   const dummyItems = [
     {id: 1, item_type: "restaurant", name: "Café de Flore", address: "172 Bd Saint-Germain, 75006 Paris, France", opening_hours: [
@@ -60,9 +65,10 @@ const Itinerary = () => {
   }, [activityPlaces, foodPlaces]);
 
   useEffect(() => {
-    console.log(preferences)
-    handleSubmit(preferences)
-  }, [])
+    if (isLoaded) {
+      handleSubmit(preferences);
+    }
+  }, [isLoaded]);
 
   return (
     <main className="itinerary-container">
