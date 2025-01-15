@@ -2,7 +2,7 @@ import React from "react";
 import "./Homepage.css";
 import { Link } from 'react-router-dom'
 
-const Homepage = ({ setShowPreferences }) => {
+const Homepage = () => {
   return (
   <main>
     <header>  
