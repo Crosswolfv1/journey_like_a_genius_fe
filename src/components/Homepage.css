@@ -62,3 +62,38 @@ button {
   float: left;
   margin-left: 4%;
 }
+
+/* Responsive Styling for Tablets */
+@media (max-width: 768px) {
+  main {
+    width: 100%;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+  }
+
+  section {
+    width: 80%;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+
+  header {
+    text-align: center;
+    margin-left: 0;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2, p { 
+    padding-left: 10px;
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 14px;
+    margin-left: 0;
+  }
+}
