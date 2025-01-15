@@ -25,11 +25,10 @@ import useGoogleMaps from "../hooks/useGoogleMaps";
       const { Place } = await window.google.maps.importLibrary("places");
       const activityRequest = {
         textQuery: `${preferences.activityType} in ${preferences.searchTerm}`,
-        fields: ["displayName", "id", "accessibilityOptions", "allowsDogs", "formattedAddress", "isGoodForChildren", "isGoodForGroups", "priceLevel", "types", "regularOpeningHours"],
+        fields: ["displayName", "id", "accessibilityOptions", "allowsDogs", "formattedAddress", "isGoodForChildren", "isGoodForGroups", "priceLevel", "types", "regularOpeningHours", "internationalPhoneNumber"],
       };
       const { places } = await Place.searchByText(activityRequest);
       setActivityPlaces(places)
-
     }  
   
     useEffect(() => {
