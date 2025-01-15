@@ -1,60 +1,30 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef} from "react";
+import { Link } from "react-router-dom"
 import "./Preferences.css";
-import useGoogleMaps from "../hooks/useGoogleMaps";
 
 
-  const Preferences = () => {
-  const [showPreferences] = useState(false)
-
-    const [preferences, setPreferences] = useState({})
-    const [searchTerm, setSearch] = useState('')
-    const [dayLength, setDayLength] = useState('')
-    const [activityType, setActivityType] = useState('')
-    const [budget, setBudget] = useState('')
-    const [accessibility, setAccessibility] = useState('')
-    const [groupSize, setGroupSize] = useState('')
-    const [foodType, setFoodType] = useState('')
-    const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-    const { isLoaded, error } = useGoogleMaps(apiKey); 
-    const mapRef = useRef(null);
-    const [activityPlaces, setActivityPlaces] = useState([]);  
-    const [foodPlaces, setFoodPlaces] = useState([]);  
+const Preferences = () => {
+  const [preferences, setPreferences] = useState({})
+  const [searchTerm, setSearch] = useState('')
+  const [dayLength, setDayLength] = useState('')
+  const [activityType, setActivityType] = useState('')
+  const [budget, setBudget] = useState('')
+  const [accessibility, setAccessibility] = useState('')
+  const [groupSize, setGroupSize] = useState('')
+  const [foodType, setFoodType] = useState('')
 
 
-    async function findPlaces() {
-      const { Place } = await window.google.maps.importLibrary("places");
-      const activityRequest = {
-        textQuery: `${preferences.activityType} in ${preferences.searchTerm}`,
-        fields: ["displayName", "id", "accessibilityOptions", "allowsDogs", "formattedAddress", "isGoodForChildren", "isGoodForGroups", "priceLevel", "types"],
-      };
-      const { places } = await Place.searchByText(activityRequest);
-      setActivityPlaces(places)
-
-    }  
-  
-    useEffect(() => {
-      activityPlaces.forEach(element => {
-        console.log("Updated activityPlaces:", element.Eg);
-      })
-    }, [activityPlaces]);
-
-    useEffect(() => {
-      setPreferences({
-        searchTerm,
-        dayLength,
-        activityType,
-        budget,
-        accessibility,
-        groupSize,
-        foodType,
-      })
-    }, [searchTerm, dayLength, activityType, budget, accessibility, groupSize, foodType])
-  
-    const handleSubmit = (event) => {
-      event.preventDefault()
-      findPlaces(preferences)
-      console.log('Preferences to pass to API:', preferences)
-    }
+  useEffect(() => {
+    setPreferences({
+      searchTerm,
+      dayLength,
+      activityType,
+      budget,
+      accessibility,
+      groupSize,
+      foodType,
+    })
+  }, [searchTerm, dayLength, activityType, budget, accessibility, groupSize, foodType])
 
   return (
     <main className="preferences-container">
@@ -163,9 +133,9 @@ import useGoogleMaps from "../hooks/useGoogleMaps";
             <label for="bbq">Bbq</label>
           </article>
         </section>
-        <button type="submit" className="submit-button" onClick={handleSubmit}>
-        Submit Your Preferences
-      </button>
+        <Link to={`/itinerary/:user_id`} state={preferences} >
+          <button className="submit-button">Submit Your Preferences</button>
+        </Link>
       </form>
     </main>
   );
