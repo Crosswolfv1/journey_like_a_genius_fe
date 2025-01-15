@@ -1,7 +1,7 @@
 import React from "react";
 import "./Itinerary.css";
 
-const Itinerary = (places) => {
+const Itinerary = () => {
 
   const dummyItems = [
     {id: 1, item_type: "restaurant", name: "Café de Flore", address: "172 Bd Saint-Germain, 75006 Paris, France", opening_hours: [
@@ -24,17 +24,15 @@ const Itinerary = (places) => {
         <h1 className="title">Journey Like a Genius</h1>
           <section className="itinerary-content">
             <div className="itinerary-details">
-            <h4 className="itinerary-generated-message">Thank you for your information. A personalized itinerary has been generated to meet your specific needs.</h4>
-                <ul>
-                  {dummyItems.map((item, index) => (
-                    <li key={index}>
-                      <p><strong>{item.name}</strong><br /> 
-                        {item.address}<br /> 
-                        Regular Hours: {item.opening_hours}<br /> 
-                        {item.phone}</p>
-                    </li>
+            <h4 className="itinerary-generated-message">Thank you for your information. A personalized itinerary has been generated to meet your needs.</h4>
+                <p>
+                  {dummyItems.map((item) => (
+                    <p><strong>{item.name}</strong><br /> 
+                      {item.address}<br /> 
+                      Regular Hours: {item.opening_hours}<br /> 
+                      {item.phone}</p>
                   ))}
-                </ul>
+                </p>
               <button>Try another itinerary</button>
             </div>
           </section>
