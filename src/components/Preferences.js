@@ -4,6 +4,8 @@ import useGoogleMaps from "../hooks/useGoogleMaps";
 
 
   const Preferences = () => {
+  const [showPreferences] = useState(false)
+
     const [preferences, setPreferences] = useState({})
     const [searchTerm, setSearch] = useState('')
     const [dayLength, setDayLength] = useState('')
