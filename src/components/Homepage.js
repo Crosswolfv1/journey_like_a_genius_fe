@@ -1,7 +1,8 @@
 import React from "react";
 import "./Homepage.css";
+import { Link } from 'react-router-dom'
 
-const Homepage = ({ setShowPreferences }) => {
+const Homepage = () => {
   return (
   <main>
     <header>  
@@ -15,7 +16,9 @@ const Homepage = ({ setShowPreferences }) => {
           We'll ask a series of questions to better understand you lifestyle,
           preferences, and unique needs so we can generate a perfect travel day.
         </p>
-        <button onClick={() => setShowPreferences(true)}> Let's get started </button>
+        <Link to={'/preferences'}>
+        <button>Let's get started </button>
+        </Link>
       </section>
     </main>
   );
