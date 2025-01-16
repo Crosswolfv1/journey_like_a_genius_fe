@@ -139,20 +139,26 @@ const Itinerary = () => {
                     {item.internationalPhoneNumber}
               </p>
                 ))}
-                {filteredFoodPlaces.slice(1,2).map((item) => (
-                  <p><strong>{item.displayName}</strong><br /> 
-                    {item.formattedAddress}<br /> 
-                    Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
-                    {item.internationalPhoneNumber}
-              </p>
-                ))}
-                {filteredActivityPlaces.slice(1,2).map((item) => (
-                  <p><strong>{item.displayName}</strong><br /> 
-                    {item.formattedAddress}<br /> 
-                    Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
-                    {item.internationalPhoneNumber}
-              </p>
-                ))}
+                  {preferences.dayLength === "full-day" ? (
+                    filteredFoodPlaces.slice(1,2).map((item) => (
+                      <p key={item.id}>
+                        <strong>{item.displayName}</strong><br /> 
+                        {item.formattedAddress}<br /> 
+                        Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
+                        {item.internationalPhoneNumber}
+                      </p>
+                    ))
+                  ) : null}
+                  {preferences.dayLength === "full-day" ? (
+                    filteredActivityPlaces.slice(1,2).map((item) => (
+                      <p key={item.id}>
+                        <strong>{item.displayName}</strong><br /> 
+                        {item.formattedAddress}<br /> 
+                        Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
+                        {item.internationalPhoneNumber}
+                      </p>
+                    ))
+                  ) : null}
             <button className="save-button">Save itinerary</button>
             <button className="try-again-button">Try another itinerary</button>
           </div>
