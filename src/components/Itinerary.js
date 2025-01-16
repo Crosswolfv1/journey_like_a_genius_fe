@@ -11,6 +11,10 @@ const Itinerary = () => {
   const { isLoaded, error } = useGoogleMaps(apiKey); 
   const [filteredFoodPlaces, setFilteredFoodPlaces] = useState([])
   const [filteredActivityPlaces, setFilteredActivityPlaces] = useState([])
+  const [firstRandomFoodPlaces, setFirstRandomFoodPlaces] = useState([])
+  const [firstRandomActivityPlaces, setFirstRandomActivityPlaces] = useState([])
+  const [secondRandomFoodPlaces, setSecondRandomFoodPlaces] = useState([])
+  const [secondRandomActivityPlaces, setSecondRandomActivityPlaces] = useState([])
 
   const location = useLocation()
   const preferences = location.state
@@ -119,48 +123,62 @@ const Itinerary = () => {
     }
   }, [isLoaded]);
 
+  useEffect(() => {
+    const firstRandomActivityArray = filteredActivityPlaces[Math.floor(Math.random() * filteredActivityPlaces.length)];
+    const firstRandomFoodArray = filteredFoodPlaces[Math.floor(Math.random() * filteredFoodPlaces.length)];
+
+    setFirstRandomActivityPlaces(firstRandomActivityArray);
+    setFirstRandomFoodPlaces(firstRandomFoodArray);
+  }, [filteredActivityPlaces, filteredFoodPlaces]);
+
+  useEffect(() => {
+    const secondRandomActivityArray = filteredActivityPlaces[Math.floor(Math.random() * filteredActivityPlaces.length)];
+    const secondRandomFoodArray = filteredFoodPlaces[Math.floor(Math.random() * filteredFoodPlaces.length)];
+
+    setSecondRandomActivityPlaces(secondRandomActivityArray);
+    setSecondRandomFoodPlaces(secondRandomFoodArray);
+  }, [filteredActivityPlaces, filteredFoodPlaces]);
+
   return (
     <main className="itinerary-container">
       <h1 className="title">Journey Like a Genius</h1>
         <section className="itinerary-content">
           <div className="itinerary-details">
           <h4 className="itinerary-generated-message">Thank you for your information. A personalized itinerary has been generated to meet your needs.</h4>
-            {filteredFoodPlaces.slice(0,1).map((item) => (
-              <p><strong>{item.displayName}</strong><br /> 
-                {item.formattedAddress}<br /> 
-                Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
-                {item.internationalPhoneNumber}
+              {firstRandomFoodPlaces && (
+              <p><strong>{firstRandomFoodPlaces.displayName}</strong><br /> 
+                {firstRandomFoodPlaces.formattedAddress}<br /> 
+                Regular Hours: {firstRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
+                {firstRandomFoodPlaces.internationalPhoneNumber}
               </p>
-                ))}
-                {filteredActivityPlaces.slice(0,1).map((item) => (
-                  <p><strong>{item.displayName}</strong><br /> 
-                    {item.formattedAddress}<br /> 
-                    Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
-                    {item.internationalPhoneNumber}
+              )}
+              {firstRandomActivityPlaces && (
+              <p><strong>{firstRandomActivityPlaces.displayName}</strong><br /> 
+                {firstRandomActivityPlaces.formattedAddress}<br /> 
+                Regular Hours: {firstRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
+                {firstRandomActivityPlaces.internationalPhoneNumber}
               </p>
-                ))}
+              )}
                   {preferences.dayLength === "full-day" ? (
-                    filteredFoodPlaces.slice(1,2).map((item) => (
-                      <p key={item.id}>
-                        <strong>{item.displayName}</strong><br /> 
-                        {item.formattedAddress}<br /> 
-                        Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
-                        {item.internationalPhoneNumber}
+                    secondRandomFoodPlaces && (
+                      <p><strong>{secondRandomFoodPlaces.displayName}</strong><br /> 
+                        {secondRandomFoodPlaces.formattedAddress}<br /> 
+                        Regular Hours: {secondRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
+                        {secondRandomFoodPlaces.internationalPhoneNumber}
                       </p>
-                    ))
+                )
                   ) : null}
                   {preferences.dayLength === "full-day" ? (
-                    filteredActivityPlaces.slice(1,2).map((item) => (
-                      <p key={item.id}>
-                        <strong>{item.displayName}</strong><br /> 
-                        {item.formattedAddress}<br /> 
-                        Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
-                        {item.internationalPhoneNumber}
+                    secondRandomActivityPlaces && (
+                      <p><strong>{secondRandomActivityPlaces.displayName}</strong><br /> 
+                        {secondRandomActivityPlaces.formattedAddress}<br /> 
+                        Regular Hours: {secondRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
+                        {secondRandomActivityPlaces.internationalPhoneNumber}
                       </p>
-                    ))
+                )
                   ) : null}
             <button className="save-button">Save itinerary</button>
-            <button className="try-again-button">Try another itinerary</button>
+            <button className="try-again-button" onClick={() => window.location.reload()}>Try another itinerary</button>
           </div>
         </section>
     </main>
