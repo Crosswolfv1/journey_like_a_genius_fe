@@ -166,7 +166,7 @@ const Preferences = () => {
             <input type="radio" id="vegan" name="food-type" value="vegan" 
             onChange={(event) => setFoodType(event.target.value)}/>
             <label for="vegan">Vegan</label>
-            <input type="radio" id="vegetarian" name="food-type" value="vegaterian" 
+            <input type="radio" id="vegetarian" name="food-type" value="vegeterian" 
             onChange={(event) => setFoodType(event.target.value)}/>
             <label for="vegetarian">Vegetarian</label>
             <input type="radio" id="vietnamese" name="food-type" value="vietnamese" 
