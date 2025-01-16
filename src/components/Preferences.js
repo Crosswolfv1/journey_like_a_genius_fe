@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef} from "react";
-import { Link } from "react-router-dom"
+import React, { useEffect, useState} from "react";
+import { Link, useLocation } from "react-router-dom"
 import "./Preferences.css";
 
 
@@ -13,6 +13,8 @@ const Preferences = () => {
   const [group, setGroup] = useState('')
   const [foodType, setFoodType] = useState('')
   const [allowsDogs, setAllowsDogs] = useState('')
+  const location = useLocation()
+  const userId = location.state
 
 
   useEffect(() => {
@@ -174,7 +176,7 @@ const Preferences = () => {
             <label for="vietnamese">Vietnamese</label>
           </article>
         </section>
-        <Link to={`/itinerary/:user_id`} state={preferences} >
+        <Link to={`/itinerary/${userId}`} state={{ preferences }} >
           <button className="submit-button">Submit Your Preferences</button>
         </Link>
       </form>
