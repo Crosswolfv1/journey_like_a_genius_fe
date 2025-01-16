@@ -24,9 +24,9 @@ const SavedItineraries = () => {
       <section className="itinerary-content"> 
         <div className="itinerary-details"> 
           {itineraries.map((itinerary) => ( 
-            <div key={itinerary.id}> 
+            <article key={itinerary.id} className="single-itinerary"> 
               <h4>  Itinerary for {itinerary.attributes.city} - {itinerary.attributes.duration} day </h4>
-              <div> 
+              <section className="itinerary-items" > 
                 {itinerary.attributes.items.map((item) => ( 
                   <div key={item.id}> 
                     <strong>{item.name}</strong> <br />
@@ -35,8 +35,8 @@ const SavedItineraries = () => {
                     {item.phone} 
                   </div>
                 ))}
-              </div>
-            </div>
+              </section>
+            </article>
           ))}
         </div>
       </section>
