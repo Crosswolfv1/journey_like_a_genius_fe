@@ -1,0 +1,46 @@
+.itinerary-container {
+  background-image: url('/public/empty_travel_journal.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.itinerary-content {
+  width: 80%;
+  max-width: 420px;
+  height: 60vh;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  -webkit-transform: rotate(-7deg);
+}
+
+.itinerary-details {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-left: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #333;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.title {
+  -webkit-transform: rotate(-7deg);
+}
+
+h4 {
+text-align: left;
+margin-left: 60px;
+margin-bottom: 0px;
+margin-top: -20px;
+}
+
+
+
