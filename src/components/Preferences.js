@@ -109,10 +109,10 @@ const Preferences = () => {
             <label for="single">Just me</label>
             <input type="radio" id="couple" name="group-size" value="false" 
             onChange={(event) => setGroup(event.target.value)}/>
-            <label for="couple">Me + a few</label>
+            <label for="small-group">Myself + a few</label>
             <input type="radio" id="group" name="group-size" value="true" 
             onChange={(event) => setGroup(event.target.value)}/>
-            <label for="group">Me + 6 or more</label>
+            <label for="group">Myself + 6 or more</label>
             <input type="radio" id="furryFriends" name="group-size" value="true" 
             onChange={(event) => {setAllowsDogs(event.target.value); setGroup("false");}}/>
             <label for="furryFriends">Traveling with a furry companion</label>
