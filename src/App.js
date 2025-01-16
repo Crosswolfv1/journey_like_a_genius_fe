@@ -11,10 +11,10 @@ const App = () => {
   return (
     <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
       <Routes>
-        <Route path="/" element={<Homepage/>} />
-        <Route path="/preferences" element={<Preferences/>} />
-        <Route path="/itinerary/:user_id" element={<Itinerary/>} />
-        <Route path="/saved-itineraries" element={<SavedItineraries/>} />
+        <Route path="/:userId?" element={<Homepage/>} />
+        <Route path="/preferences/:userId?" element={<Preferences/>} />
+        <Route path="/itinerary/:userId?" element={<Itinerary/>} />
+        <Route path="/saved-itineraries/:userId?" element={<SavedItineraries/>} />
       </Routes>
     </div>
   );
