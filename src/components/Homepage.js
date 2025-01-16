@@ -19,6 +19,9 @@ const Homepage = () => {
         <Link to={'/preferences'}>
         <button>Let's get started </button>
         </Link>
+        <Link to="/saved-itineraries">
+        <button className="saved-itineraries">View Saved Itineraries</button>
+        </Link>
       </section>
     </main>
   );

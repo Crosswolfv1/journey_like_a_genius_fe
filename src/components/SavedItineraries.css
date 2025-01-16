@@ -10,7 +10,7 @@
   padding: 20px;
 }
 
-.itinerary-content {
+.saved-itinerary-content {
   width: 80%;
   max-width: 420px;
   height: auto;
@@ -20,7 +20,7 @@
   -webkit-transform: rotate(-7deg);
 }
 
-.itinerary-details {
+.saved-itinerary-details {
   display:flex;
   flex-direction: row;
   align-items: flex-start;
@@ -28,7 +28,7 @@
   padding: 10px;
 }
 
-.single-itinerary{
+.saved-single-itinerary{
   background-color: transparent;
   border: 5px red;
   padding: 20px;
@@ -37,7 +37,7 @@
   margin-bottom: 20px;
 }
 
-.itinerary-items {
+.saved-itinerary-items {
   margin-top: 10px;
 }
 
