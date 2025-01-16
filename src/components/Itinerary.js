@@ -9,6 +9,8 @@ const Itinerary = () => {
   const [foodPlaces, setFoodPlaces] = useState([]);  
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
   const { isLoaded, error } = useGoogleMaps(apiKey); 
+  const [filteredFoodPlaces, setFilteredFoodPlaces] = useState([])
+  const [filteredActivityPlaces, setFilteredActivityPlaces] = useState([])
 
 
   const dummyItems = [
@@ -58,6 +60,7 @@ const Itinerary = () => {
   useEffect(() => {
     const groupArray = []
     const accessArray = []
+
     const filteredActivityPlaces = activityPlaces.reduce((acc, element) => {
 
       const prefGroup = preferences.group?.toString() || '';
@@ -82,7 +85,6 @@ const Itinerary = () => {
         } else if (accessArray.includes(element.Eg) && prefDog === "false") {
           acc.push(element.Eg)
         }
-        // console.log('acc', acc)
       return acc;
     }, []);
     console.log('filteredActivityPlaces', filteredActivityPlaces)
@@ -92,7 +94,6 @@ const Itinerary = () => {
     const foodDogArray = []
 
     const filteredFoodPlaces = foodPlaces.reduce((acc, element) => {
-      console.log("food places:", element.Eg)
 
       const prefGroup = preferences.group?.toString() || '';
       const elementGroup = element.Eg?.isGoodForGroups?.toString() || '';
@@ -123,9 +124,10 @@ const Itinerary = () => {
         }
       return acc;
     }, []);
-
     console.log('filteredFoodPlaces', filteredFoodPlaces)
-  }, [activityPlaces, foodPlaces]);
+    setFilteredFoodPlaces(filteredFoodPlaces)
+    setFilteredActivityPlaces(filteredActivityPlaces)
+  }, [activityPlaces, foodPlaces, preferences]);
 
   useEffect(() => {
     if (isLoaded) {
@@ -139,15 +141,22 @@ const Itinerary = () => {
         <section className="itinerary-content">
           <div className="itinerary-details">
           <h4 className="itinerary-generated-message">Thank you for your information. A personalized itinerary has been generated to meet your needs.</h4>
-              <p>
-                {dummyItems.map((item) => (
-                  <p><strong>{item.name}</strong><br /> 
-                    {item.address}<br /> 
-                    Regular Hours: {item.opening_hours}<br /> 
-                    {item.phone}</p>
-                ))}
+            {filteredFoodPlaces.map((item) => (
+              <p><strong>{item.displayName}</strong><br /> 
+                {item.formattedAddress}<br /> 
+                Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
+                {item.internationalPhoneNumber}
               </p>
-            <button>Try another itinerary</button>
+                ))}
+                {filteredActivityPlaces.map((item) => (
+                  <p><strong>{item.displayName}</strong><br /> 
+                    {item.formattedAddress}<br /> 
+                    Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
+                    {item.internationalPhoneNumber}
+              </p>
+                ))}
+            <button className="save-button">Save itinerary</button>
+            <button className="try-again-button">Try another itinerary</button>
           </div>
         </section>
     </main>
