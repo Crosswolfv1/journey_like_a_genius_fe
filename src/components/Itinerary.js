@@ -141,14 +141,28 @@ const Itinerary = () => {
         <section className="itinerary-content">
           <div className="itinerary-details">
           <h4 className="itinerary-generated-message">Thank you for your information. A personalized itinerary has been generated to meet your needs.</h4>
-            {filteredFoodPlaces.map((item) => (
+            {filteredFoodPlaces.slice(0,1).map((item) => (
               <p><strong>{item.displayName}</strong><br /> 
                 {item.formattedAddress}<br /> 
                 Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
                 {item.internationalPhoneNumber}
               </p>
                 ))}
-                {filteredActivityPlaces.map((item) => (
+                {filteredActivityPlaces.slice(0,1).map((item) => (
+                  <p><strong>{item.displayName}</strong><br /> 
+                    {item.formattedAddress}<br /> 
+                    Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
+                    {item.internationalPhoneNumber}
+              </p>
+                ))}
+                {filteredFoodPlaces.slice(1,2).map((item) => (
+                  <p><strong>{item.displayName}</strong><br /> 
+                    {item.formattedAddress}<br /> 
+                    Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
+                    {item.internationalPhoneNumber}
+              </p>
+                ))}
+                {filteredActivityPlaces.slice(1,2).map((item) => (
                   <p><strong>{item.displayName}</strong><br /> 
                     {item.formattedAddress}<br /> 
                     Regular Hours: {item.regularOpeningHours.weekdayDescriptions}<br /> 
