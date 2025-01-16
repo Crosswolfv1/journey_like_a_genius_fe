@@ -10,25 +10,35 @@
   padding: 20px;
 }
 
-.itinerary-content {
+.saved-itinerary-content {
   width: 80%;
   max-width: 420px;
-  height: 60vh;
-  overflow-y: auto;
+  height: auto;
+  overflow-y: visible;
   display: flex;
   justify-content: center;
   -webkit-transform: rotate(-7deg);
 }
 
-.itinerary-details {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  padding-left: 30px;
+.saved-itinerary-details {
+  display:flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+}
+
+.saved-single-itinerary{
+  background-color: transparent;
+  border: 5px red;
+  padding: 20px;
+  border-radius: 10px;
   font-family: 'Courier New', Courier, monospace;
-  color: #333;
-  max-width: 600px;
-  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.saved-itinerary-items {
+  margin-top: 10px;
 }
 
 .title {
@@ -41,6 +51,3 @@ margin-left: 60px;
 margin-bottom: 0px;
 margin-top: -20px;
 }
-
-
-
