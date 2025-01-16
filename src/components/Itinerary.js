@@ -56,12 +56,75 @@ const Itinerary = () => {
   }  
 
   useEffect(() => {
-    activityPlaces.forEach(element => {
-      console.log("Updated activityPlaces:", element.Eg);
-    })
-    foodPlaces.forEach(element => {
+    const groupArray = []
+    const accessArray = []
+    const filteredActivityPlaces = activityPlaces.reduce((acc, element) => {
+
+      const prefGroup = preferences.group?.toString() || '';
+      const elementGroup = element.Eg?.isGoodForGroups?.toString() || '';
+      const prefDog = preferences.allowsDogs?.toString() || '';
+      const elementDog = element.Eg?.allowsDogs?.toString() || '';
+      const prefAccess = preferences.accessibility?.toString() || '';
+      const elementAccess = element.Eg?.accessibilityOptions?.hasWheelchairAccessibleEntrance?.toString() || '';
+
+        if (prefGroup === elementGroup){
+          groupArray.push(element.Eg)
+        } else if (prefGroup === "false") {
+          groupArray.push(element.Eg)
+        }
+        if (groupArray.includes(element.Eg) && prefAccess === elementAccess){
+          accessArray.push(element.Eg)
+        } else if (groupArray.includes(element.Eg) && prefAccess === "false") {
+          accessArray.push(element.Eg)
+        }
+        if (accessArray.includes(element.Eg) && prefDog === elementDog){
+          acc.push(element.Eg)
+        } else if (accessArray.includes(element.Eg) && prefDog === "false") {
+          acc.push(element.Eg)
+        }
+        // console.log('acc', acc)
+      return acc;
+    }, []);
+    console.log('filteredActivityPlaces', filteredActivityPlaces)
+
+    const foodGroupArray = []
+    const doosAccessArray = []
+    const foodDogArray = []
+
+    const filteredFoodPlaces = foodPlaces.reduce((acc, element) => {
       console.log("food places:", element.Eg)
-    })
+
+      const prefGroup = preferences.group?.toString() || '';
+      const elementGroup = element.Eg?.isGoodForGroups?.toString() || '';
+      const prefBudget = preferences.budget?.toString() || '';
+      const elementBudget = element.Eg?.priceLevel?.toString().toLowerCase() || '';
+      const prefDog = preferences.allowsDogs?.toString() || '';
+      const elementDog = element.Eg?.allowsDogs?.toString() || '';
+      const prefAccess = preferences.accessibility?.toString() || '';
+      const elementAccess = element.Eg?.accessibilityOptions?.hasWheelchairAccessibleEntrance?.toString() || '';
+
+        if (prefGroup === elementGroup){
+          foodGroupArray.push(element.Eg)
+        } else if (prefGroup === "false") {
+          foodGroupArray.push(element.Eg)
+        }
+        if (foodGroupArray.includes(element.Eg) && prefAccess === elementAccess){
+          doosAccessArray.push(element.Eg)
+        } else if (foodGroupArray.includes(element.Eg) && prefAccess === "false") {
+          doosAccessArray.push(element.Eg)
+        }
+        if (doosAccessArray.includes(element.Eg) && prefDog === elementDog){
+          foodDogArray.push(element.Eg)
+        } else if (accessArray.includes(element.Eg) && prefDog === "false") {
+          foodDogArray.push(element.Eg)
+        }
+        if (foodDogArray.includes(element.Eg) && prefBudget === elementBudget){
+          acc.push(element.Eg)
+        }
+      return acc;
+    }, []);
+
+    console.log('filteredFoodPlaces', filteredFoodPlaces)
   }, [activityPlaces, foodPlaces]);
 
   useEffect(() => {
