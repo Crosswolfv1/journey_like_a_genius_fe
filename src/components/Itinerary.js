@@ -55,15 +55,6 @@ const Itinerary = () => {
     setFoodPlaces(places)
   }  
 
-  // useEffect(() => {
-  //   activityPlaces.forEach(element => {
-  //     console.log("Updated activityPlaces:", element.Eg);
-  //   })
-  //   foodPlaces.forEach(element => {
-  //     console.log("food places:", element.Eg)
-  //   })
-  // }, [activityPlaces, foodPlaces]);
-
   useEffect(() => {
     const groupArray = []
     const accessArray = []
