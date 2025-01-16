@@ -12,22 +12,6 @@ const Itinerary = () => {
   const [filteredFoodPlaces, setFilteredFoodPlaces] = useState([])
   const [filteredActivityPlaces, setFilteredActivityPlaces] = useState([])
 
-
-  const dummyItems = [
-    {id: 1, item_type: "restaurant", name: "Café de Flore", address: "172 Bd Saint-Germain, 75006 Paris, France", opening_hours: [
-      "Everyday: 7:30 AM – 2:00 AM",
-     ], phone: "+33 1 45 48 55 26"},
-    {id: 2, item_type: "activity", name: "Musée d'Orsay", address: "Esplanade Valéry Giscard d'Estaing, 75007 Paris, France", opening_hours: [
-      "Monday: Closed",
-      "Tuesday, Wedensday, Thursday, Friday, Saturday, Sunday: 9:30 AM – 6:00 PM",
-     ], phone: "+33 1 40 49 48 14"},
-     {id: 3, item_type: "restaurant", name: "Le comptoir du Relais", address: "9 Carr de l'Odéon, 75006 Paris, France", opening_hours: [
-      "Everyday: 12:00 PM – 11:00 PM,",
-     ], phone: "+33 1 40 49 48 14"},
-     {id: 4, item_type: "activity", name: "Jardin des Tuileries", address: "48 Rue du Vertbois, 75003 Paris, France", opening_hours: [
-      "Not specified",
-     ], phone: "Not specified"},
-  ]
   const location = useLocation()
   const preferences = location.state
 
