@@ -125,6 +125,9 @@ const Itinerary = () => {
         <section className="itinerary-content">
           <div className="itinerary-details">
           <h4 className="itinerary-generated-message">Thank you for your information. A personalized itinerary has been generated to meet your needs.</h4>
+            {(filteredFoodPlaces.length <= 1 || filteredActivityPlaces.length <= 1) ? (
+            <p><strong>May be unable to display full itinerary with selected preferences</strong></p>
+            ) : null}
             {filteredFoodPlaces.slice(0,1).map((item) => (
               <p><strong>{item.displayName}</strong><br /> 
                 {item.formattedAddress}<br /> 
