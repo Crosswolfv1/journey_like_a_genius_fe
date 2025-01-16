@@ -31,10 +31,11 @@
 .saved-single-itinerary{
   background-color: transparent;
   border: 5px red;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   font-family: 'Courier New', Courier, monospace;
   margin-bottom: 20px;
+  font-size: xx-small;
 }
 
 .saved-itinerary-items {
@@ -50,4 +51,13 @@ text-align: left;
 margin-left: 60px;
 margin-bottom: 0px;
 margin-top: -20px;
+}
+
+button {
+  border-radius: 5px;
+  background-color: beige;
+  font-size: 15px;
+  cursor: pointer;
+  float: left;
+  margin-left: 4%;
 }
