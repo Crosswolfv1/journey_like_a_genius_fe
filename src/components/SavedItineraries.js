@@ -13,7 +13,6 @@ const SavedItineraries = () => {
     fetch("http://localhost:3000/api/v1/itineraries")
     .then(response => response.json())
     .then(data => {
-      console.log("my itineraries: ", data.data)
       setItineraries(data.data || [])
     })
     .catch(error => console.log(error))
