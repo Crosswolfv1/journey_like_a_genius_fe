@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useParams } from "react-router";
 import "./Itinerary.css";
 import useGoogleMaps from "../hooks/useGoogleMaps";
 
@@ -15,7 +15,7 @@ const Itinerary = () => {
   const [firstRandomActivityPlaces, setFirstRandomActivityPlaces] = useState([])
   const [secondRandomFoodPlaces, setSecondRandomFoodPlaces] = useState([])
   const [secondRandomActivityPlaces, setSecondRandomActivityPlaces] = useState([])
-
+  const { userId } = useParams()
   const location = useLocation()
   const preferences = location.state
 
