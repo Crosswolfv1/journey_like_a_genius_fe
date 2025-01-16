@@ -13,6 +13,7 @@ const SavedItineraries = () => {
     fetch("http://localhost:3000/api/v1/itineraries")
     .then(response => response.json())
     .then(data => {
+      console.log("my itineraries: ", data.data)
       setItineraries(data.data || [])
     })
     .catch(error => console.log(error))
@@ -24,19 +25,23 @@ const SavedItineraries = () => {
       <section className="itinerary-content"> 
         <div className="itinerary-details"> 
           {itineraries.map((itinerary) => ( 
-            <div key={itinerary.id}> 
+            <article key={itinerary.id} className="single-itinerary"> 
               <h4>  Itinerary for {itinerary.attributes.city} - {itinerary.attributes.duration} day </h4>
-              <div> 
-                {itinerary.attributes.items.map((item) => ( 
-                  <div key={item.id}> 
-                    <strong>{item.name}</strong> <br />
-                    {item.address} <br />
-                    Regular Hours: {item.opening_hours} <br />
-                    {item.phone} 
-                  </div>
-                ))}
-              </div>
-            </div>
+              <section className="itinerary-items" > 
+                {itinerary.attributes.items.length > 0 ? (
+                  itinerary.attributes.items.map((item) => ( 
+                    <div key={item.id}> 
+                      <strong>{item.name}</strong> <br />
+                      {item.address} <br />
+                      Regular Hours: {item.opening_hours} <br />
+                      {item.phone} 
+                    </div>
+                  ))
+                ) : (
+                  <p> No items for this itinerary. </p>
+                )}
+              </section>
+            </article>
           ))}
         </div>
       </section>
