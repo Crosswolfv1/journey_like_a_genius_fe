@@ -10,8 +10,9 @@ const Preferences = () => {
   const [activityType, setActivityType] = useState('')
   const [budget, setBudget] = useState('')
   const [accessibility, setAccessibility] = useState('')
-  const [groupSize, setGroupSize] = useState('')
+  const [group, setGroup] = useState('')
   const [foodType, setFoodType] = useState('')
+  const [allowsDogs, setAllowsDogs] = useState('')
 
 
   useEffect(() => {
@@ -21,10 +22,11 @@ const Preferences = () => {
       activityType,
       budget,
       accessibility,
-      groupSize,
+      group,
       foodType,
+      allowsDogs,
     })
-  }, [searchTerm, dayLength, activityType, budget, accessibility, groupSize, foodType])
+  }, [searchTerm, dayLength, activityType, budget, accessibility, group, foodType])
 
   return (
     <main className="preferences-container">
@@ -68,45 +70,45 @@ const Preferences = () => {
         <section className="budget">
           <h3> What type of budget are you looking to stay within? </h3>
           <article>
-            <input type="radio" id="inexpensive" name="budget-type" value="inexpensive" 
+            {/* <input type="radio" id="inexpensive" name="budget-type" value="inexpensive" 
             onChange={(event) => setBudget(event.target.value)}/>
-            <label for="inexpensive">$</label>
+            <label for="inexpensive">$</label> */}
             <input type="radio" id="moderate" name="budget-type" value="moderate" 
             onChange={(event) => setBudget(event.target.value)}/>
             <label for="moderate">$$</label>
             <input type="radio" id="expensive" name="budget-type" value="expensive" 
             onChange={(event) => setBudget(event.target.value)}/>
             <label for="expensive">$$$</label>
-            <input type="radio" id="veryExpensive" name="budget-type" value="veryExpensive" 
+            {/* <input type="radio" id="veryExpensive" name="budget-type" value="veryExpensive" 
             onChange={(event) => setBudget(event.target.value)}/>
-            <label for="veryExpensive">$$$$</label>
+            <label for="veryExpensive">$$$$</label> */}
           </article>
         </section>
         <section className="accessibility">
           <h3> Would you like accessibility options? </h3>
           <article>
-            <input type="radio" id="yes" name="accessibility" value="yes" 
+            <input type="radio" id="yes" name="accessibility" value="true" 
             onChange={(event) => setAccessibility(event.target.value)}/>
             <label for="yes">Yes</label>
-            <input type="radio" id="no" name="accessibility" value="no" 
+            <input type="radio" id="no" name="accessibility" value="false" 
             onChange={(event) => setAccessibility(event.target.value)}/>
             <label for="no">No</label>
           </article>
         </section>
-        <section className="groupSize">
+        <section className="group">
           <h3> What does your travel party look like? </h3>
           <article>
-            <input type="radio" id="single" name="group-size" value="single" 
-            onChange={(event) => setGroupSize(event.target.value)}/>
+            <input type="radio" id="single" name="group-size" value="false" 
+            onChange={(event) => setGroup(event.target.value)}/>
             <label for="single">Just me</label>
-            <input type="radio" id="couple" name="group-size" value="couple" 
-            onChange={(event) => setGroupSize(event.target.value)}/>
-            <label for="couple">Me + 1</label>
-            <input type="radio" id="group" name="group-size" value="group" 
-            onChange={(event) => setGroupSize(event.target.value)}/>
-            <label for="group">Me + 3 or more</label>
-            <input type="radio" id="furryFriends" name="group-size" value="furryFriends" 
-            onChange={(event) => setGroupSize(event.target.value)}/>
+            <input type="radio" id="couple" name="group-size" value="false" 
+            onChange={(event) => setGroup(event.target.value)}/>
+            <label for="couple">Me + a few</label>
+            <input type="radio" id="group" name="group-size" value="true" 
+            onChange={(event) => setGroup(event.target.value)}/>
+            <label for="group">Me + 6 or more</label>
+            <input type="radio" id="furryFriends" name="group-size" value="true" 
+            onChange={(event) => {setAllowsDogs(event.target.value); setGroup("false");}}/>
             <label for="furryFriends">Traveling with a furry companion</label>
           </article>
         </section>

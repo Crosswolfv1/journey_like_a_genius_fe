@@ -55,14 +55,51 @@ const Itinerary = () => {
     setFoodPlaces(places)
   }  
 
+  // useEffect(() => {
+  //   activityPlaces.forEach(element => {
+  //     console.log("Updated activityPlaces:", element.Eg);
+  //   })
+  //   foodPlaces.forEach(element => {
+  //     console.log("food places:", element.Eg)
+  //   })
+  // }, [activityPlaces, foodPlaces]);
+
   useEffect(() => {
-    activityPlaces.forEach(element => {
-      console.log("Updated activityPlaces:", element.Eg);
-    })
-    foodPlaces.forEach(element => {
-      console.log("food places:", element.Eg)
-    })
-  }, [activityPlaces, foodPlaces]);
+    const filteredFoodPlaces = foodPlaces.reduce((acc, element) => {
+      const prefGroup = preferences.group?.toString() || '';
+      const elementGroup = element.Eg?.isGoodForGroups?.toString() || '';
+      const prefBudget = preferences.budget?.toString() || '';
+      const elementBudget = element.Eg?.priceLevel?.toString().toLowerCase() || '';
+      const prefDog = preferences.allowsDogs?.toString() || '';
+      const elementDog = element.Eg?.allowsDogs?.toString() || '';
+      const prefAccess = preferences.accessibility?.toString() || '';
+      const elementAccess = element.Eg?.accessibilityOptions?.hasWheelchairAccessibleEntrance?.toString() || '';
+
+      const groupArray = []
+      const accessArray = []
+      const dogArray = []
+        if (prefGroup === elementGroup){
+          groupArray.push(element.Eg)
+        } else if (prefGroup === "false") {
+          groupArray.push(element.Eg)
+        }
+        if (groupArray.includes(element.Eg) && prefAccess === elementAccess){
+          accessArray.push(element.Eg)
+        } else if (groupArray.includes(element.Eg) && prefAccess === "false") {
+          accessArray.push(element.Eg)
+        }
+        if (accessArray.includes(element.Eg) && prefDog === elementDog){
+          dogArray.push(element.Eg)
+        } else if (accessArray.includes(element.Eg) && prefDog === "false") {
+          dogArray.push(element.Eg)
+        }
+        if (dogArray.includes(element.Eg) && prefBudget === elementBudget){
+          acc.push(element.Eg)
+        }
+      return acc;
+    }, []);
+    console.log('filteredFoodPlaces', filteredFoodPlaces)
+  }, [foodPlaces]);
 
   useEffect(() => {
     if (isLoaded) {
