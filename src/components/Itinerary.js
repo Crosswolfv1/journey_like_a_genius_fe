@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useLocation, useParams } from "react-router";
 import "./Itinerary.css";
 import useGoogleMaps from "../hooks/useGoogleMaps";
+import { Link } from "react-router-dom"
 
 
 const Itinerary = () => {
@@ -49,6 +50,7 @@ const Itinerary = () => {
   }, [preferences])
 
   useEffect(() => {
+    console.log('preferences', preferences)
     const groupArray = []
     const accessArray = []
 
@@ -183,7 +185,7 @@ const Itinerary = () => {
       ]
     }   
     console.log("what is being sent? ", JSON.stringify({ itinerary: itineraryToSave }))
-    fetch(`http://localhost:3000/api/v1/itineraries/${userId}`, {
+    fetch(`https://enigmatic-harbor-21766-4fbcc08ecd57.herokuapp.com/api/v1/itineraries/${userId.userId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -241,8 +243,13 @@ const Itinerary = () => {
                       </p>
                 )
                   ) : null}
-            <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
+            <div className="btn-container">
             <button className="try-again-button" onClick={handleTryAgain}>Try another itinerary</button>
+              <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
+              <Link to={`/${userId}`}>
+                <button className="return-home">Back to home</button>
+              </Link>
+            </div>
           </div>
         </section>
     </main>

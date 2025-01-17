@@ -175,7 +175,7 @@ const Preferences = () => {
             <label for="vietnamese">Vietnamese</label>
           </article>
         </section>
-        <Link to={`/itinerary/${userId}`} state={ preferences } >
+        <Link to={`/itinerary/${userId.userId}`} state={ preferences } >
           <button className="submit-button">Submit Your Preferences</button>
         </Link>
       </form>
