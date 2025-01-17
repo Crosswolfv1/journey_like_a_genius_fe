@@ -50,6 +50,7 @@ const Itinerary = () => {
   }, [preferences])
 
   useEffect(() => {
+    console.log('preferences', preferences)
     const groupArray = []
     const accessArray = []
 

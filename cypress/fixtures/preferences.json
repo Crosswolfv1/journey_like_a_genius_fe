@@ -1,0 +1,13 @@
+{
+  "userId": "1",
+  "preferences": {
+    "accessibility": "false",
+    "activityType": "museum",
+    "allowsDogs":"",
+    "budget":"moderate",
+    "dayLength":"full-day",
+    "foodType": "bbq",
+    "group": "false",
+    "searchTerm": "New Orleans"
+  }
+}

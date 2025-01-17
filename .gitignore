@@ -8,6 +8,19 @@
 # testing
 /coverage
 
+/cypress
+  /screenshots
+    /app.cy.js
+      - Navigates to main menu (failures).png
+
+/cypress
+  /downloads
+    - records.csv
+
+/cypress
+  /videos
+    - app.cy.js.mp4
+
 # production
 /build
 
