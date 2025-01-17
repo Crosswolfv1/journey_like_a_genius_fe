@@ -42,7 +42,13 @@ margin-bottom: 0px;
 margin-top: -20px;
 }
 
-.try-again-button, .save-button {
+.btn-container {
+  /* display: flex;
+  flex-direction: row;
+  margin: 0px; */
+}
+
+.try-again-button, .save-button, .return-home {
   max-width: max-content;
   margin-left: 40%;
 }
