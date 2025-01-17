@@ -15,9 +15,11 @@ const Itinerary = () => {
   const [firstRandomActivityPlaces, setFirstRandomActivityPlaces] = useState([])
   const [secondRandomFoodPlaces, setSecondRandomFoodPlaces] = useState([])
   const [secondRandomActivityPlaces, setSecondRandomActivityPlaces] = useState([])
+  const [locationData, setLocationData] = useState([])
   const  userId = useParams()
   const location = useLocation()
   const preferences = location.state
+ 
 
   function handleSubmit() {
     findActivityPlaces(preferences)
@@ -138,6 +140,22 @@ const Itinerary = () => {
     setSecondRandomActivityPlaces(secondRandomActivityArray);
     setSecondRandomFoodPlaces(secondRandomFoodArray);
   }, [filteredActivityPlaces, filteredFoodPlaces]);
+
+  useEffect(() => {
+    if (firstRandomActivityPlaces && firstRandomActivityPlaces.formattedAddress) {
+      const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+      fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(firstRandomActivityPlaces.formattedAddress)}&key=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+          setLocationData(data);
+          console.log('location data', data);
+        })
+        .catch(error => {
+          console.error('Error fetching location data:', error);
+          setLocationData({error: true});
+        });
+    }
+  }, [firstRandomActivityPlaces]);
 
   function saveItinerary(userId) {
     const itineraryToSave = {
