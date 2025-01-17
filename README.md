@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Journey Like a Genius Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the **Journey Like a Genius Frontend** repository! This project is designed to provide an engaging and interactive user interface for the "Journey Like a Genius" application, aiming to help users build a small travel itinerary.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Contributers](#contributers)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The "Journey Like a Genius" frontend is built using [Create React App](https://create-react-app.dev/), providing a robust foundation for developing scalable and high-performance web applications. This project focuses on delivering an intuitive and responsive user experience that allows users to select preferences such as group size, budget, and location to receive curated suggestions for a place to eat and an activity to enjoy.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+ - Customizable Preferences: Select options like group size, budget, and city to tailor recommendations.
+ - Curated Recommendations: Receive matched suggestions for dining and activities based on your chosen preferences.
+ - Responsive Design: Optimized for various devices to ensure a seamless experience across desktops, tablets, and mobile devices.
+ - Dynamic State Management: Utilizes React's state management to handle user inputs and deliver personalized results in real time.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+To get a local copy of the project up and running, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository**:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   git clone https://github.com/Crosswolfv1/journey_like_a_genius_fe.git
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Navigate to the project directory**:
 
-### `npm run eject`
+   ```bash
+   cd journey_like_a_genius_fe
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Install dependencies**:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Start the development server**:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm start
+   ```
 
-## Learn More
+   This will run the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make changes, and any lint errors will appear in the console.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributers
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Developers for this project:
 
-### Code Splitting
+[Jeremiah Ross](https://github.com/Crosswolfv1) [Linkedin](https://www.linkedin.com/in/jeremiahross/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[Alora Riley](https://github.com/aloraalee) [Linkedin](https://www.linkedin.com/in/alorariley/)
 
-### Analyzing the Bundle Size
+[Joel Davalos](https://github.com/jdavalos98) [Linkedin](https://www.linkedin.com/in/joeldavalos/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[James Cochran](https://github.com/James-Cochran) [Linkedin](https://www.linkedin.com/in/james-cochran-/)
