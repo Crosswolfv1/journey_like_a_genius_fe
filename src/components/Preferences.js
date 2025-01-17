@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from "react";
-import { Link, useLocation } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import "./Preferences.css";
 
 
@@ -13,8 +13,7 @@ const Preferences = () => {
   const [group, setGroup] = useState('')
   const [foodType, setFoodType] = useState('')
   const [allowsDogs, setAllowsDogs] = useState('')
-  const location = useLocation()
-  const userId = location.state
+  const userId = useParams()
 
 
   useEffect(() => {

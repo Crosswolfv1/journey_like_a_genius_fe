@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Homepage.css";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Homepage = () => {
-    const userId = 1;  
-  
+  const [userId, setuserId] = useState('guest');  
+  const navigate = useNavigate()
+
+  function login() {
+    setuserId(1)
+  }
+
+  useEffect(() => {
+    if (userId !== 'guest') {
+      navigate(`/${userId}`)
+    }
+  }, [userId, navigate])
+
   return (
   <main>
     <header>  
       <h1> Journey Like a Genius </h1>
-      <Link to={`/${userId}`}>
-        <button setUserId='1'>Login!</button>
-      </Link>
+        <button onClick={login} >Login!</button>
     </header>
     <section>
         <h2>
@@ -21,7 +30,7 @@ const Homepage = () => {
           We'll ask a series of questions to better understand you lifestyle,
           preferences, and unique needs so we can generate a perfect travel day.
         </p>
-        <Link to={`/preferences/${userId}`} state={userId}>
+        <Link to={`/preferences/${userId}`}>
         <button>Let's get started </button>
         </Link>
         <Link to={`/saved-itineraries/${userId}`}>
