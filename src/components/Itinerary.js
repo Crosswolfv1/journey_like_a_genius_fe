@@ -116,7 +116,7 @@ const Itinerary = () => {
       findActivityPlaces(preferences)
       findFoodPlaces(preferences)
       }
-  }, [isLoaded, preferences]);
+  }, [isLoaded, preferences, findActivityPlaces, findFoodPlaces]);
 
   useEffect(() => {
     const firstRandomActivityArray = filteredActivityPlaces[Math.floor(Math.random() * filteredActivityPlaces.length)];
