@@ -20,7 +20,7 @@ const Homepage = () => {
   <main>
     <header>  
       <h1> Journey Like a Genius </h1>
-        <button onClick={login} >Login!</button>
+        <button className="login-button" onClick={login} >Login!</button>
     </header>
     <section>
         <h2>
@@ -31,7 +31,7 @@ const Homepage = () => {
           preferences, and unique needs so we can generate a perfect travel day.
         </p>
         <Link to={`/preferences/${userId}`}>
-        <button>Let's get started </button>
+        <button className="preferences">Let's get started </button>
         </Link>
         <Link to={`/saved-itineraries/${userId}`}>
         <button className="saved-itineraries">View Saved Itineraries</button>
