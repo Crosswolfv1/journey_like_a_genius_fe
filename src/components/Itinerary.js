@@ -19,6 +19,15 @@ const Itinerary = () => {
   const location = useLocation()
   const preferences = location.state
 
+  const handleTryAgain = () => {
+    resetItinerary();
+  };
+
+  const resetItinerary = () => {
+    findActivityPlaces()
+    findFoodPlaces()
+  }
+
   const findActivityPlaces = useCallback(async () => {
     const { Place } = await window.google.maps.importLibrary("places");
     const activityRequest = {
@@ -233,7 +242,7 @@ const Itinerary = () => {
                 )
                   ) : null}
             <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
-            <button className="try-again-button" onClick={() => window.location.reload()}>Try another itinerary</button>
+            <button className="try-again-button" onClick={handleTryAgain}>Try another itinerary</button>
           </div>
         </section>
     </main>
