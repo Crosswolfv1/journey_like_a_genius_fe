@@ -15,7 +15,7 @@ const Itinerary = () => {
   const [firstRandomActivityPlaces, setFirstRandomActivityPlaces] = useState([])
   const [secondRandomFoodPlaces, setSecondRandomFoodPlaces] = useState([])
   const [secondRandomActivityPlaces, setSecondRandomActivityPlaces] = useState([])
-  const { userId } = useParams()
+  const  userId = useParams()
   const location = useLocation()
   const preferences = location.state
 
