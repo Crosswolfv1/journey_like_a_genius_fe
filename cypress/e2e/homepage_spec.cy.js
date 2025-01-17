@@ -1,5 +1,6 @@
 describe('Homepage User Flows', () => {
   beforeEach(() => {
+    cy.viewport(11440, 900)
     cy.visit('http://localhost:3000')
   })
 
@@ -15,16 +16,18 @@ describe('Homepage User Flows', () => {
     )
   })
 
-  it('should display a button that navigates to Preferences', () => {
-    cy.get('button')
-      .should('contain', "Let's get started")
-      .click()
+  it('should display a button that labeled login that logs a user in', () => {
+    cy.get('.login-button').click()
+    cy.url().should('include', '/1')
+  })
 
+  it('should display a button that navigates to Preferences', () => {
+    cy.contains('button', "Let's get started").click()
     cy.contains('h2', 'Please make your selections')
   })
 
   it('should not show the homepage content after navigating to Preferences', () => {
-    cy.get('button').click()
+    cy.get('.preferences').click()
 
     cy.get('h1').should('not.exist')
     cy.get('h2').should('not.contain', 'We’re excited to get started')
