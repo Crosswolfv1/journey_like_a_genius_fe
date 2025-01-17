@@ -183,7 +183,7 @@ const Itinerary = () => {
       ]
     }   
     console.log("what is being sent? ", JSON.stringify({ itinerary: itineraryToSave }))
-    fetch(`http://localhost:3000/api/v1/itineraries/${userId}`, {
+    fetch(`https://enigmatic-harbor-21766-4fbcc08ecd57.herokuapp.com/api/v1/itineraries/${userId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
