@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useLocation, useParams } from "react-router";
 import "./Itinerary.css";
 import useGoogleMaps from "../hooks/useGoogleMaps";
@@ -19,7 +19,7 @@ const Itinerary = () => {
   const location = useLocation()
   const preferences = location.state
 
-  async function findActivityPlaces() {
+  const findActivityPlaces = useCallback(async () => {
     const { Place } = await window.google.maps.importLibrary("places");
     const activityRequest = {
       textQuery: `${preferences.activityType} in ${preferences.searchTerm}`,
@@ -27,9 +27,9 @@ const Itinerary = () => {
     };
     const { places } = await Place.searchByText(activityRequest);
     setActivityPlaces(places)
-  }  
+  }  , [preferences])
 
-  async function findFoodPlaces() {
+  const findFoodPlaces = useCallback(async () => {
     const { Place } = await window.google.maps.importLibrary("places");
     const foodRequest = {
       textQuery: `${preferences.foodType} food in ${preferences.searchTerm}`,
@@ -37,7 +37,7 @@ const Itinerary = () => {
     };
     const { places } = await Place.searchByText(foodRequest);
     setFoodPlaces(places)
-  }  
+  }, [preferences])
 
   useEffect(() => {
     const groupArray = []
