@@ -16,7 +16,7 @@ const Itinerary = () => {
   const [firstRandomActivityPlaces, setFirstRandomActivityPlaces] = useState([])
   const [secondRandomFoodPlaces, setSecondRandomFoodPlaces] = useState([])
   const [secondRandomActivityPlaces, setSecondRandomActivityPlaces] = useState([])
-  const { userId } = useParams()
+  const  userId = useParams()
   const location = useLocation()
   const preferences = location.state
 
@@ -140,6 +140,61 @@ const Itinerary = () => {
     setSecondRandomFoodPlaces(secondRandomFoodArray);
   }, [filteredActivityPlaces, filteredFoodPlaces]);
 
+  function saveItinerary(userId) {
+    const itineraryToSave = {
+      city: preferences.searchTerm,
+      duration: preferences.dayLength,
+      items: [
+        {
+          name: firstRandomFoodPlaces.displayName,
+          address: firstRandomFoodPlaces.formattedAddress,
+          item_type: "resturant",
+          opening_hours: firstRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
+          phone: firstRandomFoodPlaces.internationalPhoneNumber
+        },
+        {
+          name: firstRandomActivityPlaces.displayName,
+          address: firstRandomActivityPlaces.formattedAddress,
+          item_type: "activity",
+          opening_hours: firstRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
+          phone: firstRandomActivityPlaces.internationalPhoneNumber
+        },
+        (preferences.dayLength === "full-day" ?
+          [
+            {
+              name: secondRandomFoodPlaces.displayName,
+              address: secondRandomFoodPlaces.formattedAddress,
+              item_type: "resturant",
+              opening_hours: secondRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
+              phone: secondRandomFoodPlaces.internationalPhoneNumber
+            },
+            {
+              name: secondRandomActivityPlaces.displayName,
+              address: secondRandomActivityPlaces.formattedAddress,
+              item_type: "activity",
+              opening_hours: secondRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
+              phone: secondRandomActivityPlaces.internationalPhoneNumber
+            },
+          ]
+        : [] )
+      ]
+    }   
+    fetch(`http://localhost:3000/api/v1/itineraries/${userId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify( {itinerary: itineraryToSave} ),
+      
+    }).then(response => {
+        if (!response.ok) {
+          throw new Error(response.status)
+        }
+        return response.json()
+      })
+      .catch(error => console.log(error))
+  }
+
   return (
     <main className="itinerary-container">
       <h1 className="title">Journey Like a Genius</h1>
@@ -183,7 +238,7 @@ const Itinerary = () => {
                   ) : null}
             <div className="btn-container">
               <button className="try-again-button" onClick={() => window.location.reload()}>Try another itinerary</button>
-              <button className="save-button">Save itinerary</button>
+              <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
               <Link to={`/${userId}`}>
                 <button className="return-home">Back to home</button>
               </Link>
