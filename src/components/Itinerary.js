@@ -8,7 +8,7 @@ const Itinerary = () => {
   const [activityPlaces, setActivityPlaces] = useState([]);  
   const [foodPlaces, setFoodPlaces] = useState([]);  
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-  const { isLoaded, error } = useGoogleMaps(apiKey); 
+  const { isLoaded } = useGoogleMaps(apiKey); 
   const [filteredFoodPlaces, setFilteredFoodPlaces] = useState([])
   const [filteredActivityPlaces, setFilteredActivityPlaces] = useState([])
   const [firstRandomFoodPlaces, setFirstRandomFoodPlaces] = useState([])
