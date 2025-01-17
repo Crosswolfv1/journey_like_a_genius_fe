@@ -19,12 +19,6 @@ const Itinerary = () => {
   const location = useLocation()
   const preferences = location.state
 
-  function handleSubmit() {
-    findActivityPlaces(preferences)
-    findFoodPlaces(preferences)
-    console.log('Preferences to pass to API:', preferences)
-  }
-
   async function findActivityPlaces() {
     const { Place } = await window.google.maps.importLibrary("places");
     const activityRequest = {
@@ -119,9 +113,10 @@ const Itinerary = () => {
 
   useEffect(() => {
     if (isLoaded) {
-      handleSubmit(preferences);
-    }
-  }, [isLoaded]);
+      findActivityPlaces(preferences)
+      findFoodPlaces(preferences)
+      }
+  }, [isLoaded, preferences]);
 
   useEffect(() => {
     const firstRandomActivityArray = filteredActivityPlaces[Math.floor(Math.random() * filteredActivityPlaces.length)];
