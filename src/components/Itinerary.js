@@ -243,14 +243,12 @@ const Itinerary = () => {
                 )
                   ) : null}
             <div className="btn-container">
-              <button className="try-again-button" onClick={() => window.location.reload()}>Try another itinerary</button>
+            <button className="try-again-button" onClick={handleTryAgain}>Try another itinerary</button>
               <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
               <Link to={`/${userId}`}>
                 <button className="return-home">Back to home</button>
               </Link>
             </div>
-            <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
-            <button className="try-again-button" onClick={handleTryAgain}>Try another itinerary</button>
           </div>
         </section>
     </main>
