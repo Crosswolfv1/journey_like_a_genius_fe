@@ -139,7 +139,7 @@ const Itinerary = () => {
     setSecondRandomFoodPlaces(secondRandomFoodArray);
   }, [filteredActivityPlaces, filteredFoodPlaces]);
 
-  function saveItinerary(userId) {
+  function saveItinerary() {
     const itineraryToSave = {
       city: preferences.searchTerm,
       duration: preferences.dayLength,
@@ -158,31 +158,33 @@ const Itinerary = () => {
           opening_hours: firstRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
           phone: firstRandomActivityPlaces.internationalPhoneNumber
         },
-        (preferences.dayLength === "full-day" ?
-          [
-            {
-              name: secondRandomFoodPlaces.displayName,
-              address: secondRandomFoodPlaces.formattedAddress,
-              item_type: "resturant",
-              opening_hours: secondRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
-              phone: secondRandomFoodPlaces.internationalPhoneNumber
-            },
-            {
-              name: secondRandomActivityPlaces.displayName,
-              address: secondRandomActivityPlaces.formattedAddress,
-              item_type: "activity",
-              opening_hours: secondRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
-              phone: secondRandomActivityPlaces.internationalPhoneNumber
-            },
-          ]
+        ...(preferences.dayLength === "full-day"
+           ? [
+              {
+                name: secondRandomFoodPlaces.displayName,
+                address: secondRandomFoodPlaces.formattedAddress,
+                item_type: "resturant",
+                opening_hours: secondRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
+                phone: secondRandomFoodPlaces.internationalPhoneNumber
+              },
+              {
+                name: secondRandomActivityPlaces.displayName,
+                address: secondRandomActivityPlaces.formattedAddress,
+                item_type: "activity",
+                opening_hours: secondRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
+                phone: secondRandomActivityPlaces.internationalPhoneNumber
+              },
+            ]
         : [] )
       ]
     }   
+    console.log("what is being sent? ", JSON.stringify({ itinerary: itineraryToSave }))
     fetch(`http://localhost:3000/api/v1/itineraries/${userId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      
       body: JSON.stringify( {itinerary: itineraryToSave} ),
       
     }).then(response => {
