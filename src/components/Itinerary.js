@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useLocation, useParams } from "react-router";
 import "./Itinerary.css";
 import useGoogleMaps from "../hooks/useGoogleMaps";
+import { Link } from "react-router-dom"
 
 
 const Itinerary = () => {
@@ -241,8 +242,13 @@ const Itinerary = () => {
                       </p>
                 )
                   ) : null}
-            <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
+            <div className="btn-container">
             <button className="try-again-button" onClick={handleTryAgain}>Try another itinerary</button>
+              <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
+              <Link to={`/${userId}`}>
+                <button className="return-home">Back to home</button>
+              </Link>
+            </div>
           </div>
         </section>
     </main>
