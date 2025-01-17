@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useLocation, useParams } from "react-router";
 import "./Itinerary.css";
 import useGoogleMaps from "../hooks/useGoogleMaps";
@@ -9,7 +9,7 @@ const Itinerary = () => {
   const [activityPlaces, setActivityPlaces] = useState([]);  
   const [foodPlaces, setFoodPlaces] = useState([]);  
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-  const { isLoaded, error } = useGoogleMaps(apiKey); 
+  const { isLoaded } = useGoogleMaps(apiKey); 
   const [filteredFoodPlaces, setFilteredFoodPlaces] = useState([])
   const [filteredActivityPlaces, setFilteredActivityPlaces] = useState([])
   const [firstRandomFoodPlaces, setFirstRandomFoodPlaces] = useState([])
@@ -20,13 +20,16 @@ const Itinerary = () => {
   const location = useLocation()
   const preferences = location.state
 
-  function handleSubmit() {
-    findActivityPlaces(preferences)
-    findFoodPlaces(preferences)
-    console.log('Preferences to pass to API:', preferences)
+  const handleTryAgain = () => {
+    resetItinerary();
+  };
+
+  const resetItinerary = () => {
+    findActivityPlaces()
+    findFoodPlaces()
   }
 
-  async function findActivityPlaces() {
+  const findActivityPlaces = useCallback(async () => {
     const { Place } = await window.google.maps.importLibrary("places");
     const activityRequest = {
       textQuery: `${preferences.activityType} in ${preferences.searchTerm}`,
@@ -34,9 +37,9 @@ const Itinerary = () => {
     };
     const { places } = await Place.searchByText(activityRequest);
     setActivityPlaces(places)
-  }  
+  }  , [preferences])
 
-  async function findFoodPlaces() {
+  const findFoodPlaces = useCallback(async () => {
     const { Place } = await window.google.maps.importLibrary("places");
     const foodRequest = {
       textQuery: `${preferences.foodType} food in ${preferences.searchTerm}`,
@@ -44,7 +47,7 @@ const Itinerary = () => {
     };
     const { places } = await Place.searchByText(foodRequest);
     setFoodPlaces(places)
-  }  
+  }, [preferences])
 
   useEffect(() => {
     const groupArray = []
@@ -120,9 +123,10 @@ const Itinerary = () => {
 
   useEffect(() => {
     if (isLoaded) {
-      handleSubmit(preferences);
-    }
-  }, [isLoaded]);
+      findActivityPlaces(preferences)
+      findFoodPlaces(preferences)
+      }
+  }, [isLoaded, preferences, findActivityPlaces, findFoodPlaces]);
 
   useEffect(() => {
     const firstRandomActivityArray = filteredActivityPlaces[Math.floor(Math.random() * filteredActivityPlaces.length)];
@@ -140,7 +144,7 @@ const Itinerary = () => {
     setSecondRandomFoodPlaces(secondRandomFoodArray);
   }, [filteredActivityPlaces, filteredFoodPlaces]);
 
-  function saveItinerary(userId) {
+  function saveItinerary() {
     const itineraryToSave = {
       city: preferences.searchTerm,
       duration: preferences.dayLength,
@@ -159,31 +163,33 @@ const Itinerary = () => {
           opening_hours: firstRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
           phone: firstRandomActivityPlaces.internationalPhoneNumber
         },
-        (preferences.dayLength === "full-day" ?
-          [
-            {
-              name: secondRandomFoodPlaces.displayName,
-              address: secondRandomFoodPlaces.formattedAddress,
-              item_type: "resturant",
-              opening_hours: secondRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
-              phone: secondRandomFoodPlaces.internationalPhoneNumber
-            },
-            {
-              name: secondRandomActivityPlaces.displayName,
-              address: secondRandomActivityPlaces.formattedAddress,
-              item_type: "activity",
-              opening_hours: secondRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
-              phone: secondRandomActivityPlaces.internationalPhoneNumber
-            },
-          ]
+        ...(preferences.dayLength === "full-day"
+           ? [
+              {
+                name: secondRandomFoodPlaces.displayName,
+                address: secondRandomFoodPlaces.formattedAddress,
+                item_type: "resturant",
+                opening_hours: secondRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
+                phone: secondRandomFoodPlaces.internationalPhoneNumber
+              },
+              {
+                name: secondRandomActivityPlaces.displayName,
+                address: secondRandomActivityPlaces.formattedAddress,
+                item_type: "activity",
+                opening_hours: secondRandomActivityPlaces.regularOpeningHours?.weekdayDescription,
+                phone: secondRandomActivityPlaces.internationalPhoneNumber
+              },
+            ]
         : [] )
       ]
     }   
-    fetch(`http://localhost:3000/api/v1/itineraries/${userId}`, {
+    console.log("what is being sent? ", JSON.stringify({ itinerary: itineraryToSave }))
+    fetch(`https://enigmatic-harbor-21766-4fbcc08ecd57.herokuapp.com/api/v1/itineraries/${userId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      
       body: JSON.stringify( {itinerary: itineraryToSave} ),
       
     }).then(response => {
@@ -243,6 +249,8 @@ const Itinerary = () => {
                 <button className="return-home">Back to home</button>
               </Link>
             </div>
+            <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
+            <button className="try-again-button" onClick={handleTryAgain}>Try another itinerary</button>
           </div>
         </section>
     </main>

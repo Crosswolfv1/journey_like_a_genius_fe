@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Map from "./components/Map";
+import React from "react";
 import Homepage from "./components/Homepage";
 import Preferences from "./components/Preferences";
 import Itinerary from "./components/Itinerary";
