@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useLocation, useParams } from "react-router";
 import "./Itinerary.css";
 import useGoogleMaps from "../hooks/useGoogleMaps";
@@ -8,7 +8,7 @@ const Itinerary = () => {
   const [activityPlaces, setActivityPlaces] = useState([]);  
   const [foodPlaces, setFoodPlaces] = useState([]);  
   const apiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-  const { isLoaded, error } = useGoogleMaps(apiKey); 
+  const { isLoaded } = useGoogleMaps(apiKey); 
   const [filteredFoodPlaces, setFilteredFoodPlaces] = useState([])
   const [filteredActivityPlaces, setFilteredActivityPlaces] = useState([])
   const [firstRandomFoodPlaces, setFirstRandomFoodPlaces] = useState([])
@@ -19,13 +19,7 @@ const Itinerary = () => {
   const location = useLocation()
   const preferences = location.state
 
-  function handleSubmit() {
-    findActivityPlaces(preferences)
-    findFoodPlaces(preferences)
-    console.log('Preferences to pass to API:', preferences)
-  }
-
-  async function findActivityPlaces() {
+  const findActivityPlaces = useCallback(async () => {
     const { Place } = await window.google.maps.importLibrary("places");
     const activityRequest = {
       textQuery: `${preferences.activityType} in ${preferences.searchTerm}`,
@@ -33,9 +27,9 @@ const Itinerary = () => {
     };
     const { places } = await Place.searchByText(activityRequest);
     setActivityPlaces(places)
-  }  
+  }  , [preferences])
 
-  async function findFoodPlaces() {
+  const findFoodPlaces = useCallback(async () => {
     const { Place } = await window.google.maps.importLibrary("places");
     const foodRequest = {
       textQuery: `${preferences.foodType} food in ${preferences.searchTerm}`,
@@ -43,7 +37,7 @@ const Itinerary = () => {
     };
     const { places } = await Place.searchByText(foodRequest);
     setFoodPlaces(places)
-  }  
+  }, [preferences])
 
   useEffect(() => {
     const groupArray = []
@@ -119,9 +113,10 @@ const Itinerary = () => {
 
   useEffect(() => {
     if (isLoaded) {
-      handleSubmit(preferences);
-    }
-  }, [isLoaded]);
+      findActivityPlaces(preferences)
+      findFoodPlaces(preferences)
+      }
+  }, [isLoaded, preferences, findActivityPlaces, findFoodPlaces]);
 
   useEffect(() => {
     const firstRandomActivityArray = filteredActivityPlaces[Math.floor(Math.random() * filteredActivityPlaces.length)];

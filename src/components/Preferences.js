@@ -27,7 +27,7 @@ const Preferences = () => {
       foodType,
       allowsDogs,
     })
-  }, [searchTerm, dayLength, activityType, budget, accessibility, group, foodType])
+  }, [searchTerm, dayLength, activityType, budget, accessibility, group, foodType, allowsDogs])
 
   return (
     <main className="preferences-container">
