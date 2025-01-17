@@ -17,19 +17,35 @@ describe('Homepage User Flows', () => {
   })
 
   it('should display a button that labeled login that logs a user in', () => {
+    cy.get('.login-button').should('exist')
+    cy.contains('Login!')
     cy.get('.login-button').click()
     cy.url().should('include', '/1')
   })
 
   it('should display a button that navigates to Preferences', () => {
-    cy.contains('button', "Let's get started").click()
-    cy.contains('h2', 'Please make your selections')
+    cy.get('.preferences').should('exist')
+    cy.get('.preferences').click()
+    cy.url().should('include', '/preferences')
+  })
+
+  it('should display a button that navigates to Saved Itineraries', () => {
+    cy.get('.saved-itineraries').should('exist')
+    cy.contains('View Saved Itineraries')
+    cy.get('.saved-itineraries').click()
+    cy.url().should('include', '/saved-itineraries/guest')
+  })
+
+  it('should not show the homepage content after navigating to Saved Itineraries', () => {
+    cy.get('.saved-itineraries').click()
+    cy.get('.preferences').should('not.exist')
+    cy.get('.login-button').should('not.exist')
   })
 
   it('should not show the homepage content after navigating to Preferences', () => {
     cy.get('.preferences').click()
-
-    cy.get('h1').should('not.exist')
     cy.get('h2').should('not.contain', 'We’re excited to get started')
+    cy.get('.preferences').should('not.exist')
+    cy.get('.login-button').should('not.exist')
   })
 })
