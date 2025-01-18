@@ -30,7 +30,8 @@ const Itinerary = () => {
     setFirstRandomActivityPlaces(null)
     setSecondRandomFoodPlaces(null)
     setSecondRandomActivityPlaces(null)
-
+    setStatus(false)
+    
     setFilteredFoodPlaces([]);
     setFilteredActivityPlaces([]);
 
