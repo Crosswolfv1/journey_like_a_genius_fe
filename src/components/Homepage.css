@@ -3,9 +3,6 @@ body {
   padding: 0;
   overflow-x: hidden;
   background-image: linear-gradient(to bottom, #fbf0da, #fcead0);
-  /* here is another option for background gradient:  */
-  /* background-image: linear-gradient(to bottom, #fbf0da, #4e302c); */
-
 }
 
 main {
@@ -25,8 +22,8 @@ section {
   align-items: flex-start;
   width: 30%;
   position: relative;
-  right: 0;
-  top: 0;
+  right: 19%;
+  top: 3%;
   bottom: 0;
   padding-right: 60px;
 }
@@ -35,7 +32,7 @@ header {
   text-align: left;
   font-family: Arial, sans-serif;
   padding: 5px;
-  margin-left: 3%;
+  margin-left: 15em;
 }
 
 h1 {
@@ -43,6 +40,8 @@ h1 {
   margin-bottom: 15px;
   font-size: xx-large;
   padding-bottom: 20px;
+  position: relative;
+  right: 15%
 }
 
 h2, p {
@@ -60,5 +59,22 @@ button {
   font-size: 15px;
   cursor: pointer;
   float: left;
-  margin-left: 4%;
 }
+
+.login-button {
+  position: relative;
+  right: 7%;
+  margin-left: 1em; 
+}
+
+
+.saved-itineraries {
+  margin-top: 5%; 
+  margin-left: 6em;
+}
+
+.preferences {
+  margin-bottom: 5%; 
+  margin-left: 7.5em;
+}
+

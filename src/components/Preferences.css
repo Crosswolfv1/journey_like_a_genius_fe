@@ -15,6 +15,7 @@
   border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
+  margin-left: -12em;
 }
 
 .submit-button:hover {
@@ -55,4 +56,8 @@
 
 .error-messages li {
   margin: 5px 0;
+}
+
+.preferencesForm {
+  margin-left: 19em;
 }

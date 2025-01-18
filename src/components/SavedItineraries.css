@@ -1,4 +1,4 @@
-.itinerary-container {
+.saved-itinerary-container {
   background-image: url('/public/empty_travel_journal.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -21,6 +21,7 @@
   top: 5%;
   flex-direction: column;
   align-items: center;
+
 }
 
 .saved-itinerary-details {
@@ -53,6 +54,7 @@
 
 .title {
   -webkit-transform: rotate(-7deg);
+  right: 0%;
 }
 
 h4.saved-itinerary-title {
