@@ -11,13 +11,16 @@
 }
 
 .saved-itinerary-content {
-  width: 80%;
-  max-width: 420px;
+  width: 100%;
+  max-width: 800px;
   height: auto;
   overflow-y: visible;
   display: flex;
   justify-content: center;
   -webkit-transform: rotate(-7deg);
+  top: 5%;
+  flex-direction: column;
+  align-items: center;
 }
 
 .saved-itinerary-details {
@@ -30,27 +33,38 @@
 
 .saved-single-itinerary{
   background-color: transparent;
-  border: 5px red;
   padding: 10px;
-  border-radius: 10px;
   font-family: 'Courier New', Courier, monospace;
-  margin-bottom: 20px;
   font-size: xx-small;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
 }
 
 .saved-itinerary-items {
-  margin-top: 10px;
+  flex-wrap: wrap;
+  align-content: center;
+  padding-right: 0;
+  top: 5%;
+  width: 50%;
 }
 
 .title {
   -webkit-transform: rotate(-7deg);
 }
 
-h4 {
-text-align: left;
-margin-left: 60px;
-margin-bottom: 0px;
-margin-top: -20px;
+h4.saved-itinerary-title {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: -20px;
+  font-size: medium;
+}
+
+div.saved-itinerary-info {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 button {
