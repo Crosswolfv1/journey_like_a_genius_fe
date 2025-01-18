@@ -24,7 +24,6 @@ section {
   position: relative;
   right: 10;
   top: 0;
-
   bottom: 0;
   padding-right: 60px;
 }
@@ -64,7 +63,11 @@ button {
   margin-left: 4%;
 }
 
+.hoempage-section button {
+  margin-top: 8px;
+}
+
 .login-button {
-  position: relative;
-  left: 4.5%;
+  position: fixed;
+  margin-left: -14.6rem;
 }

@@ -31,10 +31,10 @@ const Homepage = () => {
           preferences, and unique needs so we can generate a perfect travel day.
         </p>
         <Link to={`/preferences/${userId}`}>
-        <button className="preferences">Let's get started </button>
+        <button className="btn-preferences">Let's get started </button>
         </Link>
         <Link to={`/saved-itineraries/`}>
-        <button className="saved-itineraries">View Saved Itineraries</button>
+        <button className="btn-saved-itineraries">View Saved Itineraries</button>
         </Link>
       </section>
     </main>
