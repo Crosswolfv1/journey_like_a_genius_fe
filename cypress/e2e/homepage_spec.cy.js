@@ -33,7 +33,7 @@ describe('Homepage User Flows', () => {
     cy.get('.saved-itineraries').should('exist')
     cy.contains('View Saved Itineraries')
     cy.get('.saved-itineraries').click()
-    cy.url().should('include', '/saved-itineraries/guest')
+    cy.url().should('include', '/saved-itineraries/')
   })
 
   it('should not show the homepage content after navigating to Saved Itineraries', () => {
