@@ -1,0 +1,19 @@
+{
+  "accessibilityOptions": {"hasWheelchairAccessibleEntrance": true,"hasWheelchairAccessibleParking": true, "hasWheelchairAccessibleRestroom": true, "hasWheelchairAccessibleSeathing": ""},
+  "allowsDogs":"",
+  "displayName": "Ugly Dog Saloon & BBQ",
+  "formattedAddress": "401 Andrew Higgins Blvd, New Orleans, LA 70130, USA",
+  "id": "ChIJgx-yVHCmIIYReP9k3HOWSfM",
+  "internationalPhoneNumber": "+1 504-569-8459",
+  "isGoodForChildren": "",
+  "isGoodForGroups": "true",
+  "priceLevel": "MODERATE",
+  "regularOpeningHours": [
+    "Monday: 11:00 AM – 10:00 PM",
+    "Tuesday: 11:00 AM – 10:00 PM",
+    "Wednesday: 11:00 AM – 10:00 PM",
+    "Thursday: 11:00 AM – 10:00 PM",
+    "Friday: 11:00 AM – 11:00 PM",
+    "Saturday: 11:00 AM – 11:00 PM",
+    "Sunday: 11:00 AM – 10:00 PM"]
+  }

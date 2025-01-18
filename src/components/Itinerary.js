@@ -132,6 +132,8 @@ const Itinerary = () => {
 
     setFirstRandomActivityPlaces(firstRandomActivityArray);
     setFirstRandomFoodPlaces(firstRandomFoodArray);
+    console.log('first random activity', firstRandomActivityArray)
+    console.log('first random food', firstRandomFoodArray)
   }, [filteredActivityPlaces, filteredFoodPlaces]);
 
   useEffect(() => {
@@ -205,17 +207,17 @@ const Itinerary = () => {
           <div className="itinerary-details">
           <h4 className="itinerary-generated-message">Thank you for your information. A personalized itinerary has been generated to meet your needs.</h4>
           {(filteredFoodPlaces.length <= 1 || filteredActivityPlaces.length <= 1) ? (
-            <p><strong>May be unable to display full itinerary with selected preferences</strong></p>
+            <p key="warning"><strong>May be unable to display full itinerary with selected preferences</strong></p>
             ) : null}
               {firstRandomFoodPlaces && (
-              <p><strong>{firstRandomFoodPlaces.displayName}</strong><br /> 
+              <p key="restaurant1"><strong>{firstRandomFoodPlaces.displayName}</strong><br /> 
                 {firstRandomFoodPlaces.formattedAddress}<br /> 
                 Regular Hours: {firstRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
                 {firstRandomFoodPlaces.internationalPhoneNumber}
               </p>
               )}
               {firstRandomActivityPlaces && (
-              <p><strong>{firstRandomActivityPlaces.displayName}</strong><br /> 
+              <p key="activity1"><strong>{firstRandomActivityPlaces.displayName}</strong><br /> 
                 {firstRandomActivityPlaces.formattedAddress}<br /> 
                 Regular Hours: {firstRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
                 {firstRandomActivityPlaces.internationalPhoneNumber}
@@ -223,7 +225,7 @@ const Itinerary = () => {
               )}
                   {preferences.dayLength === "full-day" ? (
                     secondRandomFoodPlaces && (
-                      <p><strong>{secondRandomFoodPlaces.displayName}</strong><br /> 
+                      <p key="restaurant1"><strong>{secondRandomFoodPlaces.displayName}</strong><br /> 
                         {secondRandomFoodPlaces.formattedAddress}<br /> 
                         Regular Hours: {secondRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
                         {secondRandomFoodPlaces.internationalPhoneNumber}
@@ -232,7 +234,7 @@ const Itinerary = () => {
                   ) : null}
                   {preferences.dayLength === "full-day" ? (
                     secondRandomActivityPlaces && (
-                      <p><strong>{secondRandomActivityPlaces.displayName}</strong><br /> 
+                      <p key="activity2"><strong>{secondRandomActivityPlaces.displayName}</strong><br /> 
                         {secondRandomActivityPlaces.formattedAddress}<br /> 
                         Regular Hours: {secondRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
                         {secondRandomActivityPlaces.internationalPhoneNumber}

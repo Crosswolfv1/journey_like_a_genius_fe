@@ -1,0 +1,19 @@
+{
+  "accessibilityOptions": {"hasWheelchairAccessibleEntrance": true,"hasWheelchairAccessibleParking": true, "hasWheelchairAccessibleRestroom": true, "hasWheelchairAccessibleSeathing": ""},
+  "allowsDogs":"",
+  "displayName": "Ogden Museum of Southern Art",
+  "formattedAddress":"925 Camp St, New Orleans, LA 70130, USA",
+  "id": "ChIJiWrM6XamIIYRqbK2P0oz8zA",
+  "internationalPhoneNumber": "+1 504-539-9650",
+  "isGoodForChildren": "true",
+  "isGoodForGroups": "",
+  "priceLevel": "",
+  "regularOpeningHours": [
+    "Monday: 10:00 AM – 5:00 PM",
+    "Tuesday: 10:00 AM – 5:00 PM",
+    "Wednesday: 10:00 AM – 5:00 PM",
+    "Thursday: 10:00 AM – 5:00 PM",
+    "Friday: 10:00 AM – 5:00 PM",
+    "Saturday: 10:00 AM – 5:00 PM",
+    "Sunday: 10:00 AM – 5:00 PM"]
+}
