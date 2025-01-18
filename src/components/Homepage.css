@@ -25,8 +25,8 @@ section {
   align-items: flex-start;
   width: 30%;
   position: relative;
-  right: 0;
-  top: 0;
+  right: 10%;
+  top: 3%;
   bottom: 0;
   padding-right: 60px;
 }
@@ -36,6 +36,7 @@ header {
   font-family: Arial, sans-serif;
   padding: 5px;
   margin-left: 3%;
+  
 }
 
 h1 {
@@ -43,6 +44,8 @@ h1 {
   margin-bottom: 15px;
   font-size: xx-large;
   padding-bottom: 20px;
+  position: relative;
+  right: 5%
 }
 
 h2, p {
@@ -60,5 +63,21 @@ button {
   font-size: 15px;
   cursor: pointer;
   float: left;
-  margin-left: 4%;
 }
+
+.login-button {
+  position: relative;
+  right: 7%;
+  margin-left: 0; 
+  
+}
+
+
+.saved-itineraries {
+  margin-top: 5%; 
+}
+
+.preferences {
+  margin-bottom: 5%; 
+}
+
