@@ -1,11 +1,17 @@
 describe('Itinerary Component', () => {
   beforeEach(() => {
-    cy.fixture('preferences').then((preferences) => {
-      cy.log('Preferences:', JSON.stringify(preferences)); 
-      cy.visit('http://localhost:3000/itinerary/1', {
-        state: preferences,
-      })
-    })
+    cy.viewport(2000, 900)
+    cy.visit('http://localhost:3000')
+    cy.get('.login-button').click()
+    cy.get('.preferences').click()
+    cy.get('.city-input').type("New Orleans")
+    cy.get('.full-day').click()
+    cy.get('.museum').click()
+    cy.get('.moderate').click()
+    cy.get('.access-false').click()
+    cy.get('.small-group').click()
+    cy.get('.bbq').click()
+    cy.get('.submit-button').click()
   })
 
   it('displays the title', () => {
