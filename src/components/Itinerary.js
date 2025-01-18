@@ -31,7 +31,7 @@ const Itinerary = () => {
     setSecondRandomFoodPlaces(null)
     setSecondRandomActivityPlaces(null)
     setStatus(false)
-    
+
     setFilteredFoodPlaces([]);
     setFilteredActivityPlaces([]);
 
@@ -208,9 +208,6 @@ const Itinerary = () => {
           throw new Error(response.status)
         }
         setStatus(true)
-        setTimeout(() => {
-          setStatus(false)
-        }, 100000000)
         return response.json()
       })
       .catch(error => console.log(error))
