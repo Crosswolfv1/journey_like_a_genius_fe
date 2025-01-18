@@ -33,7 +33,7 @@ const Homepage = () => {
         <Link to={`/preferences/${userId}`}>
         <button className="preferences">Let's get started </button>
         </Link>
-        <Link to={`/saved-itineraries/${userId}`}>
+        <Link to={`/saved-itineraries/`}>
         <button className="saved-itineraries">View Saved Itineraries</button>
         </Link>
       </section>
