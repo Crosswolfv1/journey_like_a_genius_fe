@@ -202,7 +202,7 @@ const Itinerary = () => {
 
   return (
     <main className="itinerary-container">
-      <h1 className="title">Journey Like a Genius</h1>
+      <h1 className="itinerary-title">Journey Like a Genius</h1>
         <section className="itinerary-content">
           <div className="itinerary-details">
           <h4 className="itinerary-generated-message">Thank you for your information. A personalized itinerary has been generated to meet your needs.</h4>
@@ -244,7 +244,7 @@ const Itinerary = () => {
             <div className="btn-container">
             <button className="try-again-button" onClick={handleTryAgain}>Try another itinerary</button>
               <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
-              <Link to={`/${userId}`}>
+              <Link to={`/${userId.userId}`}>
                 <button className="return-home">Back to home</button>
               </Link>
             </div>
