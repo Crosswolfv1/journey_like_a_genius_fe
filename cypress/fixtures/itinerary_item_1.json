@@ -1,20 +1,19 @@
-
-  {
-    "accessibilityOptions": {"hasWheelchairAccessibleEntrance": true,"hasWheelchairAccessibleParking": true, "hasWheelchairAccessibleRestroom": true, "hasWheelchairAccessibleSeathing": ""},
-    "allowsDogs":"",
-    "displayName": "Ogden Museum of Southern Art",
-    "formattedAddress":"925 Camp St, New Orleans, LA 70130, USA",
-    "id": "ChIJiWrM6XamIIYRqbK2P0oz8zA",
-    "internationalPhoneNumber": "+1 504-539-9650",
-    "isGoodForChildren": "true",
-    "isGoodForGroups": "",
-    "priceLevel": "",
-    "regularOpeningHours": [
-      "Monday: 10:00 AM – 5:00 PM",
-      "Tuesday: 10:00 AM – 5:00 PM",
-      "Wednesday: 10:00 AM – 5:00 PM",
-      "Thursday: 10:00 AM – 5:00 PM",
-      "Friday: 10:00 AM – 5:00 PM",
-      "Saturday: 10:00 AM – 5:00 PM",
-      "Sunday: 10:00 AM – 5:00 PM"]
+{
+  "accessibilityOptions": {"hasWheelchairAccessibleEntrance": true,"hasWheelchairAccessibleParking": true, "hasWheelchairAccessibleRestroom": true, "hasWheelchairAccessibleSeathing": ""},
+  "allowsDogs":"",
+  "displayName": "Devil Moon Barbecue",
+  "formattedAddress":"1188 Girod St, New Orleans, LA 70113, USA",
+  "id": "ChIJxXaoTxGlIIYRl-VnF26Vpbg",
+  "internationalPhoneNumber": "+1 504-788-0093",
+  "isGoodForChildren": "true",
+  "isGoodForGroups": "true",
+  "priceLevel": "MODERATE",
+  "regularOpeningHours": [
+    "Monday: Closed",
+    "Tuesday: 11:00 AM – 3:00 PM",
+    "Wednesday: 11:00 AM – 3:00 PM",
+    "Thursday: 11:00 AM – 3:00 PM",
+    "Friday: 11:00 AM – 3:00 PM",
+    "Saturday: 11:00 AM – 3:00 PM",
+    "Sunday: 11:00 AM – 3:00 PM"]
   }

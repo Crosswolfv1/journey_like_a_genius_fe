@@ -4,7 +4,9 @@ describe('itinerary spec', () => {
       statusCode: 200,
       fixture: "preferences",
       fixture: "itinerary_item_1",
-      fixture: "itinerary_item_2"
+      fixture: "itinerary_item_2", 
+      fixture: "itinerary_item_3",
+      fixture: "itinerary_item_4"
     })
     cy.visit('http://localhost:3000')
   })

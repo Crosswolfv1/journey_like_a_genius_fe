@@ -132,6 +132,8 @@ const Itinerary = () => {
 
     setFirstRandomActivityPlaces(firstRandomActivityArray);
     setFirstRandomFoodPlaces(firstRandomFoodArray);
+    console.log('first random activity', firstRandomActivityArray)
+    console.log('first random food', firstRandomFoodArray)
   }, [filteredActivityPlaces, filteredFoodPlaces]);
 
   useEffect(() => {
