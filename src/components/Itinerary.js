@@ -25,8 +25,18 @@ const Itinerary = () => {
   };
 
   const resetItinerary = () => {
-    findActivityPlaces()
-    findFoodPlaces()
+    setFirstRandomFoodPlaces(null)
+    setFirstRandomActivityPlaces(null)
+    setSecondRandomFoodPlaces(null)
+    setSecondRandomActivityPlaces(null)
+
+    setFilteredFoodPlaces([]);
+    setFilteredActivityPlaces([]);
+
+    setTimeout(() => {
+      findActivityPlaces();
+      findFoodPlaces();
+    }, 100)
   }
 
   const findActivityPlaces = useCallback(async () => {
@@ -209,38 +219,41 @@ const Itinerary = () => {
           {(filteredFoodPlaces.length <= 1 || filteredActivityPlaces.length <= 1) ? (
             <p key="warning"><strong>May be unable to display full itinerary with selected preferences</strong></p>
             ) : null}
-              {firstRandomFoodPlaces && (
-              <p key="restaurant1"><strong>{firstRandomFoodPlaces.displayName}</strong><br /> 
-                {firstRandomFoodPlaces.formattedAddress}<br /> 
-                Regular Hours: {firstRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
-                {firstRandomFoodPlaces.internationalPhoneNumber}
-              </p>
-              )}
-              {firstRandomActivityPlaces && (
-              <p key="activity1"><strong>{firstRandomActivityPlaces.displayName}</strong><br /> 
-                {firstRandomActivityPlaces.formattedAddress}<br /> 
-                Regular Hours: {firstRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
-                {firstRandomActivityPlaces.internationalPhoneNumber}
-              </p>
-              )}
-                  {preferences.dayLength === "full-day" ? (
-                    secondRandomFoodPlaces && (
-                      <p key="restaurant1"><strong>{secondRandomFoodPlaces.displayName}</strong><br /> 
-                        {secondRandomFoodPlaces.formattedAddress}<br /> 
-                        Regular Hours: {secondRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
-                        {secondRandomFoodPlaces.internationalPhoneNumber}
-                      </p>
-                )
-                  ) : null}
-                  {preferences.dayLength === "full-day" ? (
-                    secondRandomActivityPlaces && (
-                      <p key="activity2"><strong>{secondRandomActivityPlaces.displayName}</strong><br /> 
-                        {secondRandomActivityPlaces.formattedAddress}<br /> 
-                        Regular Hours: {secondRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
-                        {secondRandomActivityPlaces.internationalPhoneNumber}
-                      </p>
-                )
-                  ) : null}
+          {firstRandomFoodPlaces ? (
+            <p key="restaurant1">
+              <strong>{firstRandomFoodPlaces.displayName}</strong><br />
+              {firstRandomFoodPlaces.formattedAddress}<br />
+              Regular Hours: {firstRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br />
+              {firstRandomFoodPlaces.internationalPhoneNumber}
+            </p>
+          ) : null}
+
+          {firstRandomActivityPlaces ? (
+            <p key="activity1">
+              <strong>{firstRandomActivityPlaces.displayName}</strong><br />
+              {firstRandomActivityPlaces.formattedAddress}<br />
+              Regular Hours: {firstRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br />
+              {firstRandomActivityPlaces.internationalPhoneNumber}
+            </p>
+          ) : null}
+
+          {preferences.dayLength === "full-day" && secondRandomFoodPlaces ? (
+            <p key="restaurant2">
+              <strong>{secondRandomFoodPlaces.displayName}</strong><br />
+              {secondRandomFoodPlaces.formattedAddress}<br />
+              Regular Hours: {secondRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br />
+              {secondRandomFoodPlaces.internationalPhoneNumber}
+            </p>
+          ) : null}
+
+          {preferences.dayLength === "full-day" && secondRandomActivityPlaces ? (
+            <p key="activity2">
+              <strong>{secondRandomActivityPlaces.displayName}</strong><br />
+              {secondRandomActivityPlaces.formattedAddress}<br />
+              Regular Hours: {secondRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br />
+              {secondRandomActivityPlaces.internationalPhoneNumber}
+            </p>
+          ) : null}
             <div className="btn-container">
             <button className="try-again-button" onClick={handleTryAgain}>Try another itinerary</button>
               <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
