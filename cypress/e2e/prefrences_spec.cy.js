@@ -1,20 +1,27 @@
 describe("Preferences Form", () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.viewport(1440, 900)
+    cy.intercept("GET", 'http://localhost:3001/api/v1/itinerary')
+    cy.visit("http://localhost:3000/preferences/1")
   })
 
-  it("should render the preferences form with all sections and inputs", () => {
-    cy.get(".preferences-container").should("exist")
-
-    cy.contains("Would you prefer a half day or full day itinerary?")
-    cy.contains("What type of activity are you looking to do?")
-    cy.contains("What type of budget are you looking to stay within?")
-    cy.contains("Would you like accessibility options?")
-    cy.contains("What does your travel party look like?")
-    cy.contains("What type of food do you like?")
-
-    cy.get(".submit-button")
-    .should("exist")
-    .and("contain.text", "Submit Your Preferences")
+  it("renders all form fields and the submit button", () => {
+    cy.get("h2").contains("Please make your selections")
+    cy.get("#city").should("exist")
+    cy.get("#half-day").should("exist")
+    cy.get("#culture").should("exist")
+    cy.get("#museum").should("exist")
+    cy.get("#expensive").should("exist")
+    cy.get("#single").should("exist")
+    cy.get("#american").should("exist")
+    cy.get("#french").should("exist")
+    cy.get(".submit-button").should("exist")
   })
+
+  it("shows validation errors when required fields are missing", () => {
+    cy.get(".submit-button").click()
+    cy.get(".error-messages").should("exist")
+    cy.get(".error-messages ul li").should("contain", "Please enter a city")
+  })
+
 })

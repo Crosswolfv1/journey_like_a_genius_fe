@@ -3,9 +3,6 @@ body {
   padding: 0;
   overflow-x: hidden;
   background-image: linear-gradient(to bottom, #fbf0da, #fcead0);
-  /* here is another option for background gradient:  */
-  /* background-image: linear-gradient(to bottom, #fbf0da, #4e302c); */
-
 }
 
 main {
@@ -27,6 +24,7 @@ section {
   position: relative;
   right: 10;
   top: 0;
+
   bottom: 0;
   padding-right: 60px;
 }
@@ -35,7 +33,7 @@ header {
   text-align: left;
   font-family: Arial, sans-serif;
   padding: 5px;
-  margin-left: 3%;
+  margin-left: 15em;
 }
 
 h1 {
@@ -43,6 +41,8 @@ h1 {
   margin-bottom: 15px;
   font-size: xx-large;
   padding-bottom: 20px;
+  position: relative;
+  right: 15%
 }
 
 h2, p {
@@ -62,7 +62,7 @@ button {
   cursor: pointer;
   float: left;
   margin-left: 4%;
-}
+
 
 .login-button {
   position: relative;

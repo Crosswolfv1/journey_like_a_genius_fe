@@ -1,4 +1,4 @@
-.itinerary-container {
+.saved-itinerary-container {
   background-image: url('/public/empty_travel_journal.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -11,53 +11,78 @@
 }
 
 .saved-itinerary-content {
-  width: 80%;
-  max-width: 420px;
+  width: 100%;
+  max-width: 800px;
   height: auto;
   overflow-y: visible;
   display: flex;
   justify-content: center;
   -webkit-transform: rotate(-7deg);
+  top: 5%;
+  flex-direction: column;
+  align-items: center;
+  left: 3%;
+  max-height: 517px;
 }
 
 .saved-itinerary-details {
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   gap: 10px;
   padding: 10px;
+  max-height: 456px;
+  overflow-y: auto;
+  bottom: -122px;
+  position: fixed;
 }
 
 .saved-single-itinerary{
   background-color: transparent;
-  border: 5px red;
   padding: 10px;
-  border-radius: 10px;
   font-family: 'Courier New', Courier, monospace;
-  margin-bottom: 20px;
   font-size: xx-small;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
 }
 
 .saved-itinerary-items {
-  margin-top: 10px;
+  flex-wrap: wrap;
+  align-content: center;
+  padding-right: 0;
+  top: 5%;
+  width: 50%;
 }
 
 .title {
   -webkit-transform: rotate(-7deg);
+  right: -11%;
 }
 
-h4 {
-text-align: left;
-margin-left: 60px;
-margin-bottom: 0px;
-margin-top: -20px;
+h4.saved-itinerary-title {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: -20px;
+  font-size: medium;
+  
 }
 
-button {
+div.saved-itinerary-info {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.saved-button {
   border-radius: 5px;
   background-color: beige;
   font-size: 15px;
   cursor: pointer;
   float: left;
   margin-left: 4%;
+  position: fixed;
+  bottom: -173px;
+  right: 411px;
 }

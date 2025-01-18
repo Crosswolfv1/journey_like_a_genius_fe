@@ -16,6 +16,7 @@ const Itinerary = () => {
   const [firstRandomActivityPlaces, setFirstRandomActivityPlaces] = useState([])
   const [secondRandomFoodPlaces, setSecondRandomFoodPlaces] = useState([])
   const [secondRandomActivityPlaces, setSecondRandomActivityPlaces] = useState([])
+  const [status, setStatus] = useState(false)
   const  userId = useParams()
   const location = useLocation()
   const preferences = location.state
@@ -25,8 +26,19 @@ const Itinerary = () => {
   };
 
   const resetItinerary = () => {
-    findActivityPlaces()
-    findFoodPlaces()
+    setFirstRandomFoodPlaces(null)
+    setFirstRandomActivityPlaces(null)
+    setSecondRandomFoodPlaces(null)
+    setSecondRandomActivityPlaces(null)
+    setStatus(false)
+
+    setFilteredFoodPlaces([]);
+    setFilteredActivityPlaces([]);
+
+    setTimeout(() => {
+      findActivityPlaces();
+      findFoodPlaces();
+    }, 100)
   }
 
   const findActivityPlaces = useCallback(async () => {
@@ -195,6 +207,7 @@ const Itinerary = () => {
         if (!response.ok) {
           throw new Error(response.status)
         }
+        setStatus(true)
         return response.json()
       })
       .catch(error => console.log(error))
@@ -202,49 +215,55 @@ const Itinerary = () => {
 
   return (
     <main className="itinerary-container">
-      <h1 className="title">Journey Like a Genius</h1>
+      <h1 className="itinerary-title">Journey Like a Genius</h1>
         <section className="itinerary-content">
           <div className="itinerary-details">
           <h4 className="itinerary-generated-message">Thank you for your information. A personalized itinerary has been generated to meet your needs.</h4>
           {(filteredFoodPlaces.length <= 1 || filteredActivityPlaces.length <= 1) ? (
             <p key="warning"><strong>May be unable to display full itinerary with selected preferences</strong></p>
             ) : null}
-              {firstRandomFoodPlaces && (
-              <p key="restaurant1"><strong>{firstRandomFoodPlaces.displayName}</strong><br /> 
-                {firstRandomFoodPlaces.formattedAddress}<br /> 
-                Regular Hours: {firstRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
-                {firstRandomFoodPlaces.internationalPhoneNumber}
-              </p>
-              )}
-              {firstRandomActivityPlaces && (
-              <p key="activity1"><strong>{firstRandomActivityPlaces.displayName}</strong><br /> 
-                {firstRandomActivityPlaces.formattedAddress}<br /> 
-                Regular Hours: {firstRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
-                {firstRandomActivityPlaces.internationalPhoneNumber}
-              </p>
-              )}
-                  {preferences.dayLength === "full-day" ? (
-                    secondRandomFoodPlaces && (
-                      <p key="restaurant1"><strong>{secondRandomFoodPlaces.displayName}</strong><br /> 
-                        {secondRandomFoodPlaces.formattedAddress}<br /> 
-                        Regular Hours: {secondRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
-                        {secondRandomFoodPlaces.internationalPhoneNumber}
-                      </p>
-                )
-                  ) : null}
-                  {preferences.dayLength === "full-day" ? (
-                    secondRandomActivityPlaces && (
-                      <p key="activity2"><strong>{secondRandomActivityPlaces.displayName}</strong><br /> 
-                        {secondRandomActivityPlaces.formattedAddress}<br /> 
-                        Regular Hours: {secondRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br /> 
-                        {secondRandomActivityPlaces.internationalPhoneNumber}
-                      </p>
-                )
-                  ) : null}
+          {firstRandomFoodPlaces ? (
+            <p key="restaurant1">
+              <strong>{firstRandomFoodPlaces.displayName}</strong><br />
+              {firstRandomFoodPlaces.formattedAddress}<br />
+              Regular Hours: {firstRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br />
+              {firstRandomFoodPlaces.internationalPhoneNumber}
+            </p>
+          ) : null}
+
+          {firstRandomActivityPlaces ? (
+            <p key="activity1">
+              <strong>{firstRandomActivityPlaces.displayName}</strong><br />
+              {firstRandomActivityPlaces.formattedAddress}<br />
+              Regular Hours: {firstRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br />
+              {firstRandomActivityPlaces.internationalPhoneNumber}
+            </p>
+          ) : null}
+
+          {preferences.dayLength === "full-day" && secondRandomFoodPlaces ? (
+            <p key="restaurant2">
+              <strong>{secondRandomFoodPlaces.displayName}</strong><br />
+              {secondRandomFoodPlaces.formattedAddress}<br />
+              Regular Hours: {secondRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br />
+              {secondRandomFoodPlaces.internationalPhoneNumber}
+            </p>
+          ) : null}
+
+          {preferences.dayLength === "full-day" && secondRandomActivityPlaces ? (
+            <p key="activity2">
+              <strong>{secondRandomActivityPlaces.displayName}</strong><br />
+              {secondRandomActivityPlaces.formattedAddress}<br />
+              Regular Hours: {secondRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br />
+              {secondRandomActivityPlaces.internationalPhoneNumber}
+            </p>
+          ) : null}
             <div className="btn-container">
+            {(status) ? (
+            <p className="saved-message" key="saved"><strong>Saved Itinerary</strong></p>
+            ) : null}
             <button className="try-again-button" onClick={handleTryAgain}>Try another itinerary</button>
               <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
-              <Link to={`/${userId}`}>
+              <Link to={`/${userId.userId}`}>
                 <button className="return-home">Back to home</button>
               </Link>
             </div>
