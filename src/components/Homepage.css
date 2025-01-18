@@ -3,9 +3,6 @@ body {
   padding: 0;
   overflow-x: hidden;
   background-image: linear-gradient(to bottom, #fbf0da, #fcead0);
-  /* here is another option for background gradient:  */
-  /* background-image: linear-gradient(to bottom, #fbf0da, #4e302c); */
-
 }
 
 main {
@@ -25,8 +22,8 @@ section {
   align-items: flex-start;
   width: 30%;
   position: relative;
-  right: 0;
-  top: 0;
+  right: 19%;
+  top: 3%;
   bottom: 0;
   padding-right: 60px;
 }
@@ -35,7 +32,7 @@ header {
   text-align: left;
   font-family: Arial, sans-serif;
   padding: 5px;
-  margin-left: 3%;
+  margin-left: 15em;
 }
 
 h1 {
@@ -43,6 +40,8 @@ h1 {
   margin-bottom: 15px;
   font-size: xx-large;
   padding-bottom: 20px;
+  position: relative;
+  right: 15%
 }
 
 h2, p {
@@ -63,6 +62,22 @@ button {
   margin-left: 4%;
 }
 
+.login-button {
+  position: relative;
+  right: 17%;
+  margin-left: 1em; 
+}
+
+
+.saved-itineraries {
+  margin-top: 5%; 
+  margin-left: 6em;
+}
+
+.preferences {
+  margin-bottom: 5%; 
+  margin-left: 7.5em;
+}
 /* Responsive Styling for Tablets */
 @media (min-width: 481px) and (max-width: 768px) {
   body {
@@ -97,7 +112,7 @@ button {
 
   section {
     position: absolute;
-    top: 19%;
+    top: 24%;
     left: 50%; 
     transform: translateX(-50%);
     width: 85%;
@@ -133,6 +148,12 @@ button {
     cursor: pointer;
     border-radius: 5px;
   }
+
+  .login-button {
+    position: relative;
+    right: 45%;
+
+  }
 }
 
 @media (max-width: 480px) {
@@ -159,7 +180,7 @@ button {
   header {
     position: relative;
     top: 6%;
-    left: 50%;
+    left: 10%;
     transform: translateX(-50%);
     text-align: center;
     width: 90%;
@@ -168,7 +189,7 @@ button {
 
   section {
     position: relative;
-    top: 17%;
+    top: 11%;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -207,4 +228,10 @@ button {
     cursor: pointer;
     border-radius: 5px;
   }
+
+  .login-button {
+    position: relative;
+    right: 20%;
+  }
 }
+
