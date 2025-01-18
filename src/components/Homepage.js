@@ -22,7 +22,7 @@ const Homepage = () => {
       <h1> Journey Like a Genius </h1>
         <button className="login-button" onClick={login} >Login!</button>
     </header>
-    <section>
+    <section className="hoempage-section">
         <h2>
           We're excited to get started on your personalized travel itinerary.
         </h2>

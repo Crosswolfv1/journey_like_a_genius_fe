@@ -22,8 +22,9 @@ section {
   align-items: flex-start;
   width: 30%;
   position: relative;
-  right: 19%;
-  top: 3%;
+  right: 10;
+  top: 0;
+
   bottom: 0;
   padding-right: 60px;
 }
@@ -45,7 +46,8 @@ h1 {
 }
 
 h2, p {
-  padding-left: 20px;
+  padding-left: 10px;
+  margin-right: 100px;
 }
 
 p {
@@ -59,22 +61,10 @@ button {
   font-size: 15px;
   cursor: pointer;
   float: left;
+  margin-left: 4%;
 }
 
 .login-button {
   position: relative;
-  right: 7%;
-  margin-left: 1em; 
+  left: 4.5%;
 }
-
-
-.saved-itineraries {
-  margin-top: 5%; 
-  margin-left: 6em;
-}
-
-.preferences {
-  margin-bottom: 5%; 
-  margin-left: 7.5em;
-}
-
