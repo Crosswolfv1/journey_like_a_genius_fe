@@ -1,0 +1,71 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "itinerary",
+      "attributes": {
+        "city": "Paris",
+        "duration": "half",
+        "user_id": 1,
+        "items": []
+      }
+    },
+    {
+      "id": "2",
+      "type": "itinerary",
+      "attributes": {
+        "city": "San Antonio",
+        "duration": "half-day",
+        "user_id": 1,
+        "items": [
+          {
+            "id": "2",
+            "item_type": "resturant",
+            "name": "Pinkerton's Barbecue",
+            "address": "107 W Houston St, San Antonio, TX 78205, USA",
+            "opening_hours": [],
+            "phone": "+1 210-983-0088"
+          },
+          {
+            "id": "3",
+            "item_type": "activity",
+            "name": "Headwaters Sanctuary",
+            "address": "4503 Broadway, San Antonio, TX 78209, USA",
+            "opening_hours": [],
+            "phone": "+1 210-828-2224"
+          }
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "type": "itinerary",
+      "attributes": {
+        "city": "San Antonio",
+        "duration": "half-day",
+        "user_id": 1,
+        "items": [
+          {
+            "id": "4",
+            "item_type": "resturant",
+            "name": "El Monte BBQ",
+            "address": "6526 Bandera Rd Suite 4, San Antonio, TX 78238, USA",
+            "opening_hours": [],
+            "phone": "+1 210-267-1356"
+          },
+          {
+            "id": "5",
+            "item_type": "activity",
+            "name": "Natural Bridge Caverns",
+            "address": "26495 Natural Bridge Caverns Rd, San Antonio, TX 78266, USA",
+            "opening_hours": [],
+            "phone": "+1 210-651-6101"
+          }
+        ]
+      }
+    }
+  ],
+  "meta": {
+    "your_itineraries": 3
+  }
+}

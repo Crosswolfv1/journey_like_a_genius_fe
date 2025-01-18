@@ -23,13 +23,14 @@ const SavedItineraries = () => {
       <h1 className="title">Journey Like a Genius</h1> 
       <section className="saved-itinerary-content"> 
         <div className="saved-itinerary-details"> 
-          {itineraries.map((itinerary) => ( 
+        {itineraries.length > 0 ? (
+          itineraries.map((itinerary) => ( 
             <article key={itinerary.id} className="saved-single-itinerary"> 
-              <h4>  Itinerary for {itinerary.attributes.city} - {itinerary.attributes.duration} day </h4>
+              <h4 className="saved-itinerary-title"> Itinerary for {itinerary.attributes.city} - {itinerary.attributes.duration} day </h4>
               <section className="saved-itinerary-items" > 
                 {itinerary.attributes.items.length > 0 ? (
                   itinerary.attributes.items.map((item) => ( 
-                    <div key={item.id}> 
+                    <div className="saved-itinerary-info" key={item.id}> 
                       <strong>{item.name}</strong> <br />
                       {item.address} <br />
                       Regular Hours: {item.opening_hours} <br />
@@ -41,7 +42,10 @@ const SavedItineraries = () => {
                 )}
               </section>
             </article>
-          ))}
+            ))
+          ) : (
+            <p>No itineraries available.</p>
+          )}
         </div>
         <Link to={'/'}>
         <button> Back to home </button>
