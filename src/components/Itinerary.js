@@ -16,6 +16,7 @@ const Itinerary = () => {
   const [firstRandomActivityPlaces, setFirstRandomActivityPlaces] = useState([])
   const [secondRandomFoodPlaces, setSecondRandomFoodPlaces] = useState([])
   const [secondRandomActivityPlaces, setSecondRandomActivityPlaces] = useState([])
+  const [status, setStatus] = useState(false)
   const  userId = useParams()
   const location = useLocation()
   const preferences = location.state
@@ -205,6 +206,10 @@ const Itinerary = () => {
         if (!response.ok) {
           throw new Error(response.status)
         }
+        setStatus(true)
+        setTimeout(() => {
+          setStatus(false)
+        }, 100000000)
         return response.json()
       })
       .catch(error => console.log(error))
@@ -255,6 +260,9 @@ const Itinerary = () => {
             </p>
           ) : null}
             <div className="btn-container">
+            {(status) ? (
+            <p className="saved-message" key="saved"><strong>Saved Itinerary</strong></p>
+            ) : null}
             <button className="try-again-button" onClick={handleTryAgain}>Try another itinerary</button>
               <button className="save-button" onClick={saveItinerary}>Save itinerary</button>
               <Link to={`/${userId.userId}`}>
