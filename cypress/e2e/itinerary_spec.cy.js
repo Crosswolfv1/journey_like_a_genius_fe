@@ -3,7 +3,8 @@ describe('itinerary spec', () => {
     cy.intercept("GET", "http://localhost:3001/api/v1/itinerary", {
       statusCode: 200,
       fixture: "preferences",
-      fixture: "itinerary_item"
+      fixture: "itinerary_item_1",
+      fixture: "itinerary_item_2"
     })
     cy.visit('http://localhost:3000')
   })
