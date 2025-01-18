@@ -1,0 +1,104 @@
+{
+  "results": [
+    {
+      "accessibilityOptions": {
+        "hasWheelchairAccessibleEntrance": true,
+        "hasWheelchairAccessibleParking": true,
+        "hasWheelchairAccessibleRestroom": true,
+        "hasWheelchairAccessibleSeating": true
+      },
+      "allowsDogs": "",
+      "displayName": "Devil Moon Barbecue",
+      "formattedAddress": "1188 Girod St, New Orleans, LA 70113, USA",
+      "id": "ChIJxXaoTxGlIIYRl-VnF26Vpbg",
+      "internationalPhoneNumber": "+1 504-788-0093",
+      "isGoodForChildren": "true",
+      "isGoodForGroups": "true",
+      "priceLevel": "MODERATE",
+      "regularOpeningHours": [
+        "Monday: Closed",
+        "Tuesday: 11:00 AM – 3:00 PM",
+        "Wednesday: 11:00 AM – 3:00 PM",
+        "Thursday: 11:00 AM – 3:00 PM",
+        "Friday: 11:00 AM – 3:00 PM",
+        "Saturday: 11:00 AM – 3:00 PM",
+        "Sunday: 11:00 AM – 3:00 PM"
+      ]
+    },
+    {
+      "accessibilityOptions": {
+        "hasWheelchairAccessibleEntrance": true,
+        "hasWheelchairAccessibleParking": true,
+        "hasWheelchairAccessibleRestroom": true,
+        "hasWheelchairAccessibleSeating": true
+      },
+      "allowsDogs": "",
+      "displayName": "Ogden Museum of Southern Art",
+      "formattedAddress": "925 Camp St, New Orleans, LA 70130, USA",
+      "id": "ChIJiWrM6XamIIYRqbK2P0oz8zA",
+      "internationalPhoneNumber": "+1 504-539-9650",
+      "isGoodForChildren": "true",
+      "isGoodForGroups": "",
+      "priceLevel": "",
+      "regularOpeningHours": [
+        "Monday: 10:00 AM – 5:00 PM",
+        "Tuesday: 10:00 AM – 5:00 PM",
+        "Wednesday: 10:00 AM – 5:00 PM",
+        "Thursday: 10:00 AM – 5:00 PM",
+        "Friday: 10:00 AM – 5:00 PM",
+        "Saturday: 10:00 AM – 5:00 PM",
+        "Sunday: 10:00 AM – 5:00 PM"
+      ]
+    },
+    {
+      "accessibilityOptions": {
+        "hasWheelchairAccessibleEntrance": true,
+        "hasWheelchairAccessibleParking": true,
+        "hasWheelchairAccessibleRestroom": true,
+        "hasWheelchairAccessibleSeating": true
+      },
+      "allowsDogs": "",
+      "displayName": "The National WWII Museum",
+      "formattedAddress": "945 Magazine St, New Orleans, LA 70130, USA",
+      "id": "ChIJHc6A2namIIYRaibte9NvWoU",
+      "internationalPhoneNumber": "+1 504-528-1944",
+      "isGoodForChildren": "true",
+      "isGoodForGroups": "",
+      "priceLevel": "",
+      "regularOpeningHours": [
+        "Monday: 9:00 AM – 5:00 PM",
+        "Tuesday: 9:00 AM – 5:00 PM",
+        "Wednesday: 9:00 AM – 5:00 PM",
+        "Thursday: 9:00 AM – 5:00 PM",
+        "Friday: 9:00 AM – 5:00 PM",
+        "Saturday: 9:00 AM – 5:00 PM",
+        "Sunday: 9:00 AM – 5:00 PM"
+      ]
+    },
+    {
+      "accessibilityOptions": {
+        "hasWheelchairAccessibleEntrance": true,
+        "hasWheelchairAccessibleParking": true,
+        "hasWheelchairAccessibleRestroom": true,
+        "hasWheelchairAccessibleSeating": true
+      },
+      "allowsDogs": "",
+      "displayName": "Café du Monde",
+      "formattedAddress": "800 Decatur St, New Orleans, LA 70116, USA",
+      "id": "ChIJy8h61j6lIIYRY8LrDWn-Wyo",
+      "internationalPhoneNumber": "+1 504-525-4544",
+      "isGoodForChildren": "true",
+      "isGoodForGroups": "",
+      "priceLevel": "LOW",
+      "regularOpeningHours": [
+        "Monday: 8:00 AM – 10:00 PM",
+        "Tuesday: 8:00 AM – 10:00 PM",
+        "Wednesday: 8:00 AM – 10:00 PM",
+        "Thursday: 8:00 AM – 10:00 PM",
+        "Friday: 8:00 AM – 10:00 PM",
+        "Saturday: 8:00 AM – 10:00 PM",
+        "Sunday: 8:00 AM – 10:00 PM"
+      ]
+    }
+  ]
+}
