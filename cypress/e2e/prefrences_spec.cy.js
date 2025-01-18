@@ -18,4 +18,10 @@ describe("Preferences Form", () => {
     cy.get(".submit-button").should("exist")
   })
 
+  it("shows validation errors when required fields are missing", () => {
+    cy.get(".submit-button").click()
+    cy.get(".error-messages").should("exist")
+    cy.get(".error-messages ul li").should("contain", "Please enter a city")
+  })
+
 })
