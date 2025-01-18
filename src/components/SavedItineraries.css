@@ -75,7 +75,7 @@ div.saved-itinerary-info {
   margin-bottom: 10px;
 }
 
-button {
+.saved-button {
   border-radius: 5px;
   background-color: beige;
   font-size: 15px;

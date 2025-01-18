@@ -48,7 +48,7 @@ const SavedItineraries = () => {
           )}
         </div>
         <Link to={'/'}>
-        <button> Back to home </button>
+        <button className="saved-button"> Back to home </button>
         </Link>
       </section>
     </main>
