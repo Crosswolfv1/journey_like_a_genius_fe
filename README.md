@@ -8,6 +8,7 @@ Welcome to the **Journey Like a Genius Frontend** repository! This project is de
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Contributers](#contributers)
+- [Backend](#backend-repository-link)
 
 ## Overview
 
@@ -53,11 +54,11 @@ To get a local copy of the project up and running, follow these steps:
 ## Contributers
 
 Developers for this project:
+ - [Jeremiah Ross](https://github.com/Crosswolfv1) [Linkedin](https://www.linkedin.com/in/jeremiahross/)
+ - [Alora Riley](https://github.com/aloraalee) [Linkedin](https://www.linkedin.com/in/alorariley/)
+ - [Joel Davalos](https://github.com/jdavalos98) [Linkedin](https://www.linkedin.com/in/joeldavalos/)
+ - [James Cochran](https://github.com/James-Cochran) [Linkedin](https://www.linkedin.com/in/james-cochran-/)
 
-[Jeremiah Ross](https://github.com/Crosswolfv1) [Linkedin](https://www.linkedin.com/in/jeremiahross/)
+## Backend Repository Link:
 
-[Alora Riley](https://github.com/aloraalee) [Linkedin](https://www.linkedin.com/in/alorariley/)
-
-[Joel Davalos](https://github.com/jdavalos98) [Linkedin](https://www.linkedin.com/in/joeldavalos/)
-
-[James Cochran](https://github.com/James-Cochran) [Linkedin](https://www.linkedin.com/in/james-cochran-/)
+[Journey Like a Genius Backend](https://github.com/Crosswolfv1/journey_like_a_genius)
