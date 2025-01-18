@@ -50,4 +50,15 @@ describe('Saved Itineraries User Flows', () => {
     })
   })
   
+  it('should display a message when no itineraries are available', () => {
+    cy.intercept('GET', '**/api/v1/itineraries', {
+      fixture: 'no_itineraries.json',
+    }).as('getNoItineraries')
+    cy.visit('https://journeylikeagenius.netlify.app/')
+    cy.contains('View Saved Itineraries').click()
+    cy.wait('@getNoItineraries')
+    cy.get('.saved-single-itinerary').should('not.exist')
+    cy.contains('No itineraries available.').should('exist')
+  })
+  
 })
