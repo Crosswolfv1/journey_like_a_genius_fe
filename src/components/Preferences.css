@@ -56,3 +56,17 @@
 .error-messages li {
   margin: 5px 0;
 }
+
+@media (max-width: 1650px) {
+  main {
+    left: -5%;
+  }
+}
+
+@media (max-width: 895px) {
+  main {
+    background-image: linear-gradient(to bottom, #fbf0da, #fcead0);
+
+    left: 15%;
+  }
+}
