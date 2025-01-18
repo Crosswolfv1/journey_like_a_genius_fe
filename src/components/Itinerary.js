@@ -50,7 +50,6 @@ const Itinerary = () => {
   }, [preferences])
 
   useEffect(() => {
-    console.log('preferences', preferences)
     const groupArray = []
     const accessArray = []
 
@@ -80,7 +79,6 @@ const Itinerary = () => {
         }
       return acc;
     }, []);
-    console.log('filteredActivityPlaces', filteredActivityPlaces)
 
     const foodGroupArray = []
     const doosAccessArray = []
@@ -117,7 +115,6 @@ const Itinerary = () => {
         }
       return acc;
     }, []);
-    console.log('filteredFoodPlaces', filteredFoodPlaces)
     setFilteredFoodPlaces(filteredFoodPlaces)
     setFilteredActivityPlaces(filteredActivityPlaces)
   }, [activityPlaces, foodPlaces, preferences]);
@@ -184,8 +181,7 @@ const Itinerary = () => {
         : [] )
       ]
     }   
-    console.log("what is being sent? ", JSON.stringify({ itinerary: itineraryToSave }))
-    fetch(`https://enigmatic-harbor-21766-4fbcc08ecd57.herokuapp.com/api/v1/itineraries/${userId}`, {
+    fetch(`https://enigmatic-harbor-21766-4fbcc08ecd57.herokuapp.com/api/v1/itineraries/${userId.userId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

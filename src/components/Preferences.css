@@ -34,3 +34,25 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+.error-messages {
+  color: #721c24;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.error-messages h4 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.error-messages ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.error-messages li {
+  margin: 5px 0;
+}

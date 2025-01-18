@@ -10,7 +10,7 @@ const SavedItineraries = () => {
   }, [])
 
   function getItineraries() {
-    fetch("http://localhost:3000/api/v1/itineraries")
+    fetch("https://enigmatic-harbor-21766-4fbcc08ecd57.herokuapp.com/api/v1/itineraries")
     .then(response => response.json())
     .then(data => {
       setItineraries(data.data || [])
