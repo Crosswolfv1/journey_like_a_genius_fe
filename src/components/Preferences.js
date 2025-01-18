@@ -71,6 +71,7 @@ const Preferences = () => {
     <main className="preferences-container">
       <h2>Please make your selections</h2>
       <form onSubmit={handleSubmit}>
+        <div className="form-section">
         <section className="city-input-section">
           <h3>What City Are You In?</h3>
           <input
@@ -213,6 +214,7 @@ const Preferences = () => {
             <label for="vietnamese">Vietnamese</label>
           </article>
         </section>
+        </div>
 
         {errors.length > 0 && (
           <div className="error-messages">
