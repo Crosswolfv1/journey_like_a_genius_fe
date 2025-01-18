@@ -19,7 +19,7 @@ const SavedItineraries = () => {
   }
 
   return (
-    <main className="itinerary-container"> 
+    <main className="saved-itinerary-container"> 
       <h1 className="title">Journey Like a Genius</h1> 
       <section className="saved-itinerary-content"> 
         <div className="saved-itinerary-details"> 

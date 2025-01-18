@@ -70,7 +70,7 @@ const Preferences = () => {
   return (
     <main className="preferences-container">
       <h2>Please make your selections</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="preferencesForm" onSubmit={handleSubmit}>
         <section className="city-input-section">
           <h3>What City Are You In?</h3>
           <input
