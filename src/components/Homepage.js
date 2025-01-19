@@ -22,7 +22,7 @@ const Homepage = () => {
       <h1> Journey Like a Genius </h1>
         <button className="login-button" onClick={login} >Login!</button>
     </header>
-    <section className="hoempage-section">
+    <section className="homepage-section">
         <h2>
           We're excited to get started on your personalized travel itinerary.
         </h2>
@@ -31,10 +31,10 @@ const Homepage = () => {
           preferences, and unique needs so we can generate a perfect travel day.
         </p>
         <Link to={`/preferences/${userId}`}>
-        <button className="btn-preferences">Let's get started </button>
+        <button className="preferences">Let's get started </button>
         </Link>
         <Link to={`/saved-itineraries/`}>
-        <button className="btn-saved-itineraries">View Saved Itineraries</button>
+        <button className="saved-itineraries">View Saved Itineraries</button>
         </Link>
       </section>
     </main>
