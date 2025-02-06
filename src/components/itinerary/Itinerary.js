@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useLocation, useParams } from "react-router";
 import "./Itinerary.css";
-import useGoogleMaps from "../hooks/useGoogleMaps";
+import useGoogleMaps from "../../hooks/useGoogleMaps";
 import { Link } from "react-router-dom"
 
 

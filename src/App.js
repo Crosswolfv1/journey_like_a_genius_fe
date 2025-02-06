@@ -1,8 +1,8 @@
 import React from "react";
-import Homepage from "./components/Homepage";
-import Preferences from "./components/Preferences";
-import Itinerary from "./components/Itinerary";
-import SavedItineraries from "./components/SavedItineraries";
+import Homepage from "./components/homepage/Homepage";
+import Preferences from "./components/preferences/Preferences";
+import Itinerary from "./components/itinerary/Itinerary";
+import SavedItineraries from "./components/saveditineraries/SavedItineraries";
 import { Routes, Route} from 'react-router-dom';
 
 const App = () => {
