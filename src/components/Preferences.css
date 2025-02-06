@@ -58,6 +58,10 @@
   margin: 5px 0;
 }
 
+article {
+  width: 90%;
+}
+
 @media (max-width: 1650px) {
   main {
     left: -5%;
