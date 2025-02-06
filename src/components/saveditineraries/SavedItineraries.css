@@ -35,6 +35,7 @@
   overflow-y: auto;
   bottom: -122px;
   position: fixed;
+  width: 60%
 }
 
 .saved-single-itinerary{
