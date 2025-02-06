@@ -26,7 +26,7 @@ const SavedItineraries = () => {
         {itineraries.length > 0 ? (
           itineraries.map((itinerary) => ( 
             <article key={itinerary.id} className="saved-single-itinerary"> 
-              <h4 className="saved-itinerary-title"> Itinerary for {itinerary.attributes.city} - {itinerary.attributes.duration} </h4>
+              <h3 className="saved-itinerary-title"> Itinerary for {itinerary.attributes.city} - {itinerary.attributes.duration} </h4>
               <section className="saved-itinerary-items" > 
                 {itinerary.attributes.items.length > 0 ? (
                   itinerary.attributes.items.map((item) => ( 
