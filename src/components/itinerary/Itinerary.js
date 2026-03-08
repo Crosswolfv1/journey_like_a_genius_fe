@@ -68,26 +68,26 @@ const Itinerary = () => {
     const filteredActivityPlaces = activityPlaces.reduce((acc, element) => {
 
       const prefGroup = preferences.group?.toString() || '';
-      const elementGroup = element.Eg?.isGoodForGroups?.toString() || '';
+      const elementGroup = element.Hi?.isGoodForGroups?.toString() || '';
       const prefDog = preferences.allowsDogs?.toString() || '';
-      const elementDog = element.Eg?.allowsDogs?.toString() || '';
+      const elementDog = element.Hi?.allowsDogs?.toString() || '';
       const prefAccess = preferences.accessibility?.toString() || '';
-      const elementAccess = element.Eg?.accessibilityOptions?.hasWheelchairAccessibleEntrance?.toString() || '';
+      const elementAccess = element.Hi?.accessibilityOptions?.hasWheelchairAccessibleEntrance?.toString() || '';
 
         if (prefGroup === elementGroup){
-          groupArray.push(element.Eg)
+          groupArray.push(element.Hi)
         } else if (prefGroup === "false") {
-          groupArray.push(element.Eg)
+          groupArray.push(element.Hi)
         }
-        if (groupArray.includes(element.Eg) && prefAccess === elementAccess){
-          accessArray.push(element.Eg)
-        } else if (groupArray.includes(element.Eg) && prefAccess === "false") {
-          accessArray.push(element.Eg)
+        if (groupArray.includes(element.Hi) && prefAccess === elementAccess){
+          accessArray.push(element.Hi)
+        } else if (groupArray.includes(element.Hi) && prefAccess === "false") {
+          accessArray.push(element.Hi)
         }
-        if (accessArray.includes(element.Eg) && prefDog === elementDog){
-          acc.push(element.Eg)
-        } else if (accessArray.includes(element.Eg) && prefDog === "false") {
-          acc.push(element.Eg)
+        if (accessArray.includes(element.Hi) && prefDog === elementDog){
+          acc.push(element.Hi)
+        } else if (accessArray.includes(element.Hi) && prefDog === "false") {
+          acc.push(element.Hi)
         }
       return acc;
     }, []);
@@ -99,31 +99,31 @@ const Itinerary = () => {
     const filteredFoodPlaces = foodPlaces.reduce((acc, element) => {
 
       const prefGroup = preferences.group?.toString() || '';
-      const elementGroup = element.Eg?.isGoodForGroups?.toString() || '';
+      const elementGroup = element.Hi?.isGoodForGroups?.toString() || '';
       const prefBudget = preferences.budget?.toString() || '';
-      const elementBudget = element.Eg?.priceLevel?.toString().toLowerCase() || '';
+      const elementBudget = element.Hi?.priceLevel?.toString().toLowerCase() || '';
       const prefDog = preferences.allowsDogs?.toString() || '';
-      const elementDog = element.Eg?.allowsDogs?.toString() || '';
+      const elementDog = element.Hi?.allowsDogs?.toString() || '';
       const prefAccess = preferences.accessibility?.toString() || '';
-      const elementAccess = element.Eg?.accessibilityOptions?.hasWheelchairAccessibleEntrance?.toString() || '';
+      const elementAccess = element.Hi?.accessibilityOptions?.hasWheelchairAccessibleEntrance?.toString() || '';
 
         if (prefGroup === elementGroup){
-          foodGroupArray.push(element.Eg)
+          foodGroupArray.push(element.Hi)
         } else if (prefGroup === "false") {
-          foodGroupArray.push(element.Eg)
+          foodGroupArray.push(element.Hi)
         }
-        if (foodGroupArray.includes(element.Eg) && prefAccess === elementAccess){
-          doosAccessArray.push(element.Eg)
-        } else if (foodGroupArray.includes(element.Eg) && prefAccess === "false") {
-          doosAccessArray.push(element.Eg)
+        if (foodGroupArray.includes(element.Hi) && prefAccess === elementAccess){
+          doosAccessArray.push(element.Hi)
+        } else if (foodGroupArray.includes(element.Hi) && prefAccess === "false") {
+          doosAccessArray.push(element.Hi)
         }
-        if (doosAccessArray.includes(element.Eg) && prefDog === elementDog){
-          foodDogArray.push(element.Eg)
-        } else if (accessArray.includes(element.Eg) && prefDog === "false") {
-          foodDogArray.push(element.Eg)
+        if (doosAccessArray.includes(element.Hi) && prefDog === elementDog){
+          foodDogArray.push(element.Hi)
+        } else if (accessArray.includes(element.Hi) && prefDog === "false") {
+          foodDogArray.push(element.Hi)
         }
-        if (foodDogArray.includes(element.Eg) && prefBudget === elementBudget){
-          acc.push(element.Eg)
+        if (foodDogArray.includes(element.Hi) && prefBudget === elementBudget){
+          acc.push(element.Hi)
         }
       return acc;
     }, []);
@@ -195,7 +195,7 @@ const Itinerary = () => {
         : [] )
       ]
     }   
-    fetch(`https://enigmatic-harbor-21766-4fbcc08ecd57.herokuapp.com/api/v1/itineraries/${userId.userId}`, {
+    fetch('http://localhost:3001/api/v1/itineraries/1', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -226,7 +226,7 @@ const Itinerary = () => {
             <p key="restaurant1">
               <strong>{firstRandomFoodPlaces.displayName}</strong><br />
               {firstRandomFoodPlaces.formattedAddress}<br />
-              Regular Hours: {firstRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br />
+              RqEular Hours: {firstRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br />
               {firstRandomFoodPlaces.internationalPhoneNumber}
             </p>
           ) : null}
@@ -235,7 +235,7 @@ const Itinerary = () => {
             <p key="activity1">
               <strong>{firstRandomActivityPlaces.displayName}</strong><br />
               {firstRandomActivityPlaces.formattedAddress}<br />
-              Regular Hours: {firstRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br />
+              RqEular Hours: {firstRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br />
               {firstRandomActivityPlaces.internationalPhoneNumber}
             </p>
           ) : null}
@@ -244,7 +244,7 @@ const Itinerary = () => {
             <p key="restaurant2">
               <strong>{secondRandomFoodPlaces.displayName}</strong><br />
               {secondRandomFoodPlaces.formattedAddress}<br />
-              Regular Hours: {secondRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br />
+              RqEular Hours: {secondRandomFoodPlaces.regularOpeningHours?.weekdayDescriptions}<br />
               {secondRandomFoodPlaces.internationalPhoneNumber}
             </p>
           ) : null}
@@ -253,7 +253,7 @@ const Itinerary = () => {
             <p key="activity2">
               <strong>{secondRandomActivityPlaces.displayName}</strong><br />
               {secondRandomActivityPlaces.formattedAddress}<br />
-              Regular Hours: {secondRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br />
+              RqEular Hours: {secondRandomActivityPlaces.regularOpeningHours?.weekdayDescriptions}<br />
               {secondRandomActivityPlaces.internationalPhoneNumber}
             </p>
           ) : null}
